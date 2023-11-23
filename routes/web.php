@@ -9,6 +9,8 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\InformasiController; 
+use App\Http\Controllers\ProfilController;
 
 
 /*
@@ -69,4 +71,16 @@ Route::middleware(['auth', 'checkrole:3'])->group(function () {
 Route::middleware(['web', 'guest'])->group(function () {
     Route::get('/register', [RegisterController::class, 'showForm'])->name('register.form');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.process');
+});
+
+//Rute untuk Informasi Magang
+Route::resource('/informasi', InformasiController::class);
+
+//Rute untuk tampilan profil
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
+    Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');
+    Route::post('/updateprofil', [ProfilController::class, 'updateProfile'])->name('profil.updateprofil');
+    Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
+    Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
 });
