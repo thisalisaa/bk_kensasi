@@ -35,7 +35,7 @@ class InformasiController extends Controller
         // Cek apakah ada file gambar diinputkan
         if ($request->hasFile('foto')) {
             $request->validate([
-                'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                'foto' => 'image|mimes:jpeg,png,jpg',
             ]);
 
             $imageName = time() . '.' . $request->foto->extension();
@@ -73,7 +73,7 @@ class InformasiController extends Controller
 
         if ($request->hasFile('foto')) {
             $request->validate([
-                'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                'foto' => 'image|mimes:jpeg,png,jpg',
         ]);
 
         $imageName = time() . '.' . $request->foto->extension();
@@ -91,7 +91,8 @@ class InformasiController extends Controller
         $informasi->update($request->all());
 
         return redirect()->route('informasi.index')
-        ->with('success', 'Informasi created successfully.');
+        ->with('success', 'Informasi created successfully.')
+        ->with('popup', true); // Tambahkan flag popup
         }
 
     public function destroy(Informasi $informasi)
@@ -99,6 +100,7 @@ class InformasiController extends Controller
         $informasi->delete();
 
         return redirect()->route('informasi.index')
-        ->with('success', 'Informasi created successfully.');
+        ->with('success', 'Informasi created successfully.')
+        ->with('popup', true); // Tambahkan flag popup
     }
 }
