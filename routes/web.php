@@ -3,15 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LayananMasalahController;
 use App\Http\Controllers\DataSiswaController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\InformasiController; 
 use App\Http\Controllers\ProfilController;
-
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RedirectController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +30,32 @@ Route::get('/', function () {
 });
 
 Route::resource('/layanan', LayananMasalahController::class);
-
-Route::get('/register',[LoginControoler::class,'register'])->name('register');
-
 Route::get('/beranda',function(){
     return view('beranda/index');
 });
 
 
-//datasiswa
+//Rute untuk crud admin informasi
+Route::resource('/informasi', InformasiController::class);
+//tampilan informasi untuk siswa
+Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
+//tampilan biodata
+Route::get('/biodata/data-siswa', [BiodataController::class, 'getDataSiswa']);
+Route::get('/biodata/orang-tua', [BiodataController::class, 'getOrangTua']);
+Route::get('/biodata/keterangan-lain', [BiodataController::class, 'getKeteranganLain']);
+Route::get('/biodata/unduh-data', [BiodataController::class, 'getUnduhData']);
+
+
+//Rute untuk tampilan profil blum bener
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
+    Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');
+    Route::post('/updateprofil', [ProfilController::class, 'updateProfile'])->name('profil.updateprofil');
+    Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
+    Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
+});
+
+//rute untuk crud data siswa
 Route::resource('datasiswa', DataSiswaController::class);
 
 // Rute untuk login
@@ -66,42 +84,32 @@ Route::middleware(['auth', 'checkrole:2'])->group(function () {
 Route::middleware(['auth', 'checkrole:3'])->group(function () {
     Route::get('/siswa', [SiswaController::class, 'index']);
 });
-
-// Rute untuk registrasi
+//rute registrasi
 Route::middleware(['web', 'guest'])->group(function () {
-    Route::get('/register', [RegisterController::class, 'showForm'])->name('register.form');
+    // Tampilkan formulir registrasi
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
+
+    // Proses formulir registrasi
     Route::post('/register', [RegisterController::class, 'register'])->name('register.process');
 });
 
-//Rute untuk crud admin informasi
-Route::resource('/informasi', InformasiController::class);
-//tampilan informasi untuk siswa
-Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
-//tampilan biodata
-Route::get('/biodata/data-siswa', [BiodataController::class, 'getDataSiswa']);
-Route::get('/biodata/orang-tua', [BiodataController::class, 'getOrangTua']);
-Route::get('/biodata/keterangan-lain', [BiodataController::class, 'getKeteranganLain']);
-Route::get('/biodata/unduh-data', [BiodataController::class, 'getUnduhData']);
+// Rute registrasi
+Route::middleware(['web', 'guest'])->group(function () {
+    // Tampilkan formulir registrasi
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
 
-
-//Rute untuk tampilan profil blum bener
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
-    Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');
-    Route::post('/updateprofil', [ProfilController::class, 'updateProfile'])->name('profil.updateprofil');
-    Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
-    Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
+    // Proses formulir registrasi
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.process');
 });
 
-Route::resource('/layanan', LayananMasalahController::class);
-Route::resource('/keteranganlain', KeteranganLainController::class);
-
-
-Route::get('/beranda',function(){
-    return view('beranda/index');
+// Rute lupa password
+Route::middleware(['web', 'guest'])->group(function () {
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 });
 
-
-Route::get('/biodata/cetak_pdf', [BiodataController::class,'cetak_pdf']);
-
-Route::get('/biodata', [BiodataController::class, 'biodata']);
+// Rute reset password
+Route::middleware(['web', 'guest'])->group(function () {
+    Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+});
