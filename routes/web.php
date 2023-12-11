@@ -92,3 +92,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
     Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
 });
+
+Route::resource('/layanan', LayananMasalahController::class);
+Route::resource('/keteranganlain', KeteranganLainController::class);
+
+
+Route::get('/beranda',function(){
+    return view('beranda/index');
+});
+
+
+Route::get('/biodata/cetak_pdf', [BiodataController::class,'cetak_pdf']);
+
+Route::get('/biodata', [BiodataController::class, 'biodata']);

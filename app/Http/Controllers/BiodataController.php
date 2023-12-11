@@ -7,18 +7,18 @@ use Illuminate\Http\Request;
 class BiodataController extends Controller 
 {
     public function getDataSiswa() {
-        return view('biodata.data-siswa');
+        return view('biodata1.data-siswa');
     }
     
     public function getOrangTua() {
-        return view('biodata.orang-tua');
+        return view('biodata1.orang-tua');
     }
     
     public function getKeteranganLain() {
-        return view('biodata.keterangan-lain');
+        return view('biodata1.keterangan-lain');
     }
     
     public function getUnduhData() {
-        return view('biodata.unduh-data');
+        return view('biodata1.unduh-data');
     }
 }
