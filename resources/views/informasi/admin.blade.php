@@ -140,6 +140,7 @@
                 <div class="card-body">
                     <a href="{{ route('informasi.show', $info->id) }}" class="btn btn-info">Show</a>
                     <a href="{{ route('informasi.edit', $info->id) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('user.informasi.index') }}">Infosiswa</a>
                     <form action="{{ route('informasi.destroy', $info->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
@@ -169,5 +170,5 @@
         </div>
     </div>
     <p class="mb-0">&copy; 2023 BK KENSASI.</p>
-</footer
+</footer>
 

@@ -14,4 +14,6 @@ class informasi extends Model
     protected $fillable = [
         'judul_informasi','pembuat', 'tanggal_informasi','foto', 'isi_informasi'
     ];
+
+    
 }

@@ -41,23 +41,48 @@
         font-size: 13px;
     }
 
+    .custom-card {
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        background-color: #02B3FF;
+    }
+
+    .custom-card:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        background-color: #ADD8E6;
+    }
+
+    .card-body {
+        max-height: 150px;
+        overflow: hidden;
+        
+    }
+
+    .custom-card img {
+        margin-top: 10px;
+        margin-bottom: 0px;
+        max-height: 100px; /* Sesuaikan dengan kebutuhan Anda */
+        width: auto;
+    }
+    
 </style>
 
 <nav class="navbar navbar-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-        <img src="{{ asset('asset/biru2.jpg') }}" alt="Logo" width="20" height="15" class="d-inline-block align-text-top">
+        <img src="{{ asset('asset/biru2.jpg') }}" alt="Logo" width="15" height="15" class="d-inline-block align-text-top">
             <span style="color: #000000; font-size: 14px;">0838-9377-9890</span>
-            <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="15" height="15" class="d-inline-block align-text-top">
+        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="15" height="15" class="d-inline-block align-text-top">
             <span style="color: #000000; font-size: 14px;">smkn.1sindang@yahoo.co.id</span>
             <a class="ml-auto" style="color: #000000; font-size: 14px;">Login</a>
+            
         </a>
     </div>
 </nav>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
         <div class="d-flex align-items-center">
         <img src="{{ asset('asset/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
 
@@ -67,12 +92,10 @@
             </div>
         </div>
 
-        <!-- Tombol toggler untuk navbar -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menu navigasi di sebelah kanan -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="#">Beranda</a>
@@ -83,49 +106,35 @@
     </div>
 </nav>
 <hr>
-
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <h4 style="text-align:center; color: #00008B;">{{ $informasi->judul_informasi }}</h4>
-        </div>
-    </div>
-
-    <!-- Pindahkan bagian ini ke bawah judul -->
-    <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
-        <div class="form-group" style="display: flex; align-items: center; justify-content: center;">
-            <i class="fa-solid fa-user" style="color: #2a4b84; font-size: 9px; margin-right: 5px;"></i>
-            <label style="font-size: 15px; color: #6A4F4F; margin-right: 5px;">{{ $informasi->pembuat }}</label>
-            <p style="font-size: 15px; color: #00008B; margin: 0;"> - BK Kensasi</p> <!-- Perbaiki margin menjadi 0 -->
-        </div>
-    </div>
-
-    <!-- Pindahkan bagian ini ke bawah judul -->
-    <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
-        <div class="form-group" style="margin-bottom: 20px;">
-            <i class="fa-solid fa-calendar-days" style="color: #2a4b84; font-size: 9px;"></i>
-            <label style="font-size: 12px;"> {{ date('d-m-Y H:i', strtotime($informasi->tanggal_informasi)) }} WIB</label> <!-- Tambahkan "WIB" di sini -->
-        </div>
-    </div>
-
-    <!-- Lanjutkan dengan bagian yang lain -->
-    @if ($informasi->foto)
-        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 50px;">
-            <div class="form-group">
-                <img src="{{ asset('gambar/' . $informasi->foto) }}" alt="Gambar Informasi" width="300" height="400" class="center-image">
+<div class="row text-center">
+    @foreach ($informasi as $sis)
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex">
+                        @if ($sis->foto)
+                            <img src="{{ asset('gambar/' . $sis->foto) }}" class="img-fluid rounded-start" alt="..." style="width: 150px; height: 140px; margin-top: 20px;">
+                        @else
+                            <!-- Foto default jika tidak ada foto yang diinputkan -->
+                            <img src="{{ asset('asset/office-building.png') }}" class="img-fluid rounded-start" alt="Default Photo" style="width: 150px; height: 140px; margin-top: 20px;">
+                        @endif
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 style="text-align: justify; text-justify: inter-word;" class="card-title">{{ $sis->judul_informasi }}</h5>
+                            <div style="text-align: justify; text-justify: inter-word;" class="card-text">{{ $sis->isi_informasi }}</div>
+                        </div>
+                        <div class="card-body">
+                        <a href="{{ route('informasi.show', $sis->id) }}" class="btn btn-info">Show</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    @endif
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <div style="text-align: justify; text-justify: inter-word; margin: 0 50px;">{!! nl2br(e($informasi->isi_informasi)) !!}</div>
-        </div>
-    </div>
-    <br>
+    @endforeach
 </div>
-<br>
 
+<br>
 <footer class="bg-primary text-light text-center py-3">
     <div class="container">
         <div class="row">
@@ -143,5 +152,4 @@
     </div>
     <p class="mb-0">&copy; 2023 BK KENSASI.</p>
 </footer>
-
 

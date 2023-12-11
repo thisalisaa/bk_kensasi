@@ -73,10 +73,18 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/register', [RegisterController::class, 'register'])->name('register.process');
 });
 
-//Rute untuk Informasi Magang
+//Rute untuk crud admin informasi
 Route::resource('/informasi', InformasiController::class);
+//tampilan informasi untuk siswa
+Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
+//tampilan biodata
+Route::get('/biodata/data-siswa', [BiodataController::class, 'getDataSiswa']);
+Route::get('/biodata/orang-tua', [BiodataController::class, 'getOrangTua']);
+Route::get('/biodata/keterangan-lain', [BiodataController::class, 'getKeteranganLain']);
+Route::get('/biodata/unduh-data', [BiodataController::class, 'getUnduhData']);
 
-//Rute untuk tampilan profil
+
+//Rute untuk tampilan profil blum bener
 Route::middleware(['auth'])->group(function () {
     Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
     Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');

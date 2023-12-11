@@ -16,6 +16,13 @@ class InformasiController extends Controller
             ->with('i', (request()->input('page',1)-1)*5);
     }
 
+    public function userIndex()
+    {
+
+        $informasi = Informasi::latest()->paginate(6);
+        return view('informasi.infosiswa', compact('informasi'));
+    }
+
     public function create()
     {
         return view('informasi.create');
@@ -52,7 +59,7 @@ class InformasiController extends Controller
 
     public function show(Informasi $informasi)
     {
-        return view('tampilan.tampilan',compact('informasi'));
+        return view('infotampilan.infotampilan',compact('informasi'));
         
     }
 
