@@ -52,5 +52,5 @@
     <div class="row text-center">
         {{ $layanan->links() }}
     </div>
-      
+    
 @endsection
