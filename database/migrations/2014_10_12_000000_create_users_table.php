@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // tambahan untuk role id ditable role
+            $table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
         });
