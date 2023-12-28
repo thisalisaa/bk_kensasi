@@ -21,13 +21,14 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>Foto</th>
             <th>NISN</th>
             <th>Nama</th>
             <th>Kelas</th>
             <th>JK</th>
             <th>TTL</th>
             <th>Agama</th>
-            <th>BahasA</th>
+            <th>Bahasa</th>
             <th>Anak Ke</th>
             <th>Jumlah Saudara</th>
             <th>Alamat</th>
@@ -45,7 +46,9 @@
         </tr>
         @foreach ($datasiswa as $siswa)
             <tr>
-                <td>{{ $siswa->id }}</td>
+                <td>{{ $siswa->id_siswa }}</td>
+                <td>
+                <img src="{{ asset('fotosiswa/' . $siswa->foto_siswa) }}" alt="Foto Siswa" style="max-width: 100px; max-height: 150px;"></td>
                 <td>{{ $siswa->nisn }}</td>
                 <td>{{ $siswa->nama }}</td>
                 <td>{{ $siswa->kelas }}</td>
@@ -66,11 +69,11 @@
                 <td>{{ $siswa->gol_darah }}</td>
                 <td>{{ $siswa->riwayat_penyakit }}</td>
                 <td>
-                    <form action="{{ route('datasiswa.destroy', $siswa->id) }}" method="POST">
+                    <form action="{{ route('datasiswa.destroy', $siswa->id_siswa) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('datasiswa.show', $siswa->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('datasiswa.show', $siswa->id_siswa) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('datasiswa.edit', $siswa->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('datasiswa.edit', $siswa->id_siswa) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
