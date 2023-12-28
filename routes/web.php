@@ -7,12 +7,15 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\InformasiController; 
+use App\Http\Controllers\Biodata1Controller;  
+use App\Http\Controllers\BiodataController; 
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RedirectController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +43,11 @@ Route::resource('/informasi', InformasiController::class);
 //tampilan informasi untuk siswa
 Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
 //tampilan biodata
-Route::get('/biodata/data-siswa', [BiodataController::class, 'getDataSiswa']);
-Route::get('/biodata/orang-tua', [BiodataController::class, 'getOrangTua']);
-Route::get('/biodata/keterangan-lain', [BiodataController::class, 'getKeteranganLain']);
-Route::get('/biodata/unduh-data', [BiodataController::class, 'getUnduhData']);
+Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
+Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
+Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
+Route::get('/biodata/perbarui-data', [Biodata1Controller::class, 'update']);
+Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
 
 
 //Rute untuk tampilan profil blum bener
@@ -113,3 +117,23 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
     Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
+
+//route layanan dan keterangan lain
+Route::resource('/layanan', LayananMasalahController::class);
+Route::resource('/keteranganlain', KeteranganLainController::class);
+
+//route beranda
+Route::get('/beranda',function(){
+    return view('beranda/index');
+});
+
+//route unduh biodata
+Route::get('/biodata/cetak_pdf', [BiodataController::class,'cetak_pdf']);
+Route::get('/biodata', [BiodataController::class, 'biodata']);
+
+//route home
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

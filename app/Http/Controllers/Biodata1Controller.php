@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BiodataController extends Controller 
+class Biodata1Controller extends Controller 
 {
     public function getDataSiswa() {
         return view('biodata1.data-siswa');
@@ -16,6 +16,10 @@ class BiodataController extends Controller
     
     public function getKeteranganLain() {
         return view('biodata1.keterangan-lain');
+    }
+
+    public function update() {
+        return view('biodata1.perbarui-data');
     }
     
     public function getUnduhData() {

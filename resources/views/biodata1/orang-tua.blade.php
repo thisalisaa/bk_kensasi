@@ -1,4 +1,4 @@
-@extends('biodata.layout')
+@extends('biodata1.layout')
 
 @section('content')
 
@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
         <div class="d-flex align-items-center">
-        <img src="{{ asset('asset/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
+        <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
 
             <div>
                 <b class="informasi-pemagangan">Biodata Siswa</b>
@@ -47,16 +47,16 @@
         <div class="card-header p-0 border-bottom-0">
             <ul class="nav nav-tabs" id="formulir-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/data-siswa*') ? 'active' : '' }}" href="{{ url('/biodata/data-siswa') }}">Biodata Diri</a>
+                    <a class="nav-link {{ Request::is('biodata1/data-siswa*') ? 'active' : '' }}" href="{{ url('/biodata/data-siswa') }}">Biodata Diri</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/orang-tua*') ? 'active' : '' }}" href="{{ url('/biodata/orang-tua') }}">Orang Tua</a>
+                    <a class="nav-link {{ Request::is('biodata1/orang-tua*') ? 'active' : '' }}" href="{{ url('/biodata/orang-tua') }}">Orang Tua</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/keterangan-lain*') ? 'active' : '' }}" href="{{ url('/biodata/keterangan-lain') }}">Keterangan Lain</a>
+                    <a class="nav-link {{ Request::is('biodata1/keterangan-lain*') ? 'active' : '' }}" href="{{ url('/biodata/keterangan-lain') }}">Keterangan Lain</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/unduh-data*') ? 'active' : '' }}" href="{{ url('/biodata/unduh-data') }}">Unduh Data</a>
+                    <a class="nav-link {{ Request::is('biodata1/unduh-data*') ? 'active' : '' }}" href="{{ url('/biodata/unduh-data') }}">Unduh Data</a>
                 </li>
             </ul>
         </div>
