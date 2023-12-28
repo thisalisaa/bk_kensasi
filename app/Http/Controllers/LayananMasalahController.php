@@ -16,7 +16,7 @@ class LayananMasalahController extends Controller
         return view('layanan.index',compact('layanan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-    
+  
     public function create()
     {
         return view('layanan.create');
