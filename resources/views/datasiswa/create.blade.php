@@ -3,11 +3,11 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
+    <div class="text-center">
+            <h2>Biodata Siswa</h2>
+    </div>
         <div>
-            <h2>Add New Data</h2>
-        </div>
-        <div>
-            <a class="btn btn-primary" href="{{ route('datasiswa.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('datasiswa.index') }}">Kembali</a>
         </div>
     </div>
 </div>
@@ -29,116 +29,116 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>NISN:</strong>
+                <label>NISN:</label>
                 <input type="text" name="nisn" class="form-control" >
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Lengkap:</strong>
+                <label>Nama Lengkap:</label>
                 <input class="form-control" name="nama" ></input>
             </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kelas:</strong>
+                <label>Kelas:</label>
                 <input class="form-control" name="kelas" ></input>
             </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jenis Kelamin:</strong>
+                <label>Jenis Kelamin:</label>
                 <input class="form-control" name="jk" ></input>
             </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tempat Tanggal Lahir:</strong>
+                <label>Tempat Tanggal Lahir:</label>
                 <input class="form-control" name="ttl" ></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Agama/Kepercayaaan:</strong>
+                <label>Agama/Kepercayaaan:</label>
                 <input class="form-control" name="agama"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Bahasa Pengantar Dirumah:</strong>
+                <label>Bahasa Pengantar Dirumah:</label>
                 <input class="form-control" name="bahasa" ></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Anak Ke:</strong>
+                <label>Anak Ke:</label>
                 <input class="form-control" name="anak_ke"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jumlah Saudara Kandung:</strong>
+                <label>Jumlah Saudara Kandung:</label>
                 <input class="form-control" name="jumlah_saudara"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Alamat Peserta Didik/Siswa:</strong>
+                <label>Alamat Peserta Didik/Siswa:</label>
                 <input class="form-control" name="alamat_siswa"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nomor Telepon/WA:</strong>
+                <label>Nomor Telepon/WA:</label>
                 <input class="form-control" name="no_telepon"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tinggal dengan:</strong>
+                <label>Tinggal dengan:</label>
                 <input class="form-control" name="tinggal_dengan"></input>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jarak Dari Rumah Ke Sekolah:</strong>
+                <label>Jarak Dari Rumah Ke Sekolah:</label>
                 <input class="form-control" name="jarak_kesekolah"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-                <strong>Kendaraan Kesekolah:</strong>
+                <label>Kendaraan Kesekolah:</label>
                 <input class="form-control" name="kendaraan"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-                <strong>Asal Sekolah SMP/MTS:</strong>
+                <label>Asal Sekolah SMP/MTS:</label>
                 <input class="form-control" name="asal sekolah"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-                <strong>Berat Badan:</strong>
+                <label>Berat Badan:</label>
                 <input class="form-control" name="bb"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-                <strong>Tinggi Badan:</strong>
+                <label>Tinggi Badan:</label>
                 <input class="form-control" name="tb"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-                <strong>Golongan Darah:</strong>
+                <label>Golongan Darah:</label>
                 <input class="form-control" name="gol_darah"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-                <strong>Riwayat Penyakit:</strong>
+                <label>Riwayat Penyakit:</label>
                 <input class="form-control" name="riwayat_penyakit"></input>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
-            <button type="submit" class="btn btn-success">Submit</button>
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+            <a class="btn btn-primary" href="{{ route('datasiswa.index') }}">Next</a>
         </div>
     </div>
 
