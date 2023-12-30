@@ -37,6 +37,9 @@ Route::resource('/layanan', LayananMasalahController::class);
 Route::get('/beranda',function(){
     return view('beranda/index');
 });
+Route::get('/beranda1',function(){
+    return view('beranda/index1');
+});
 
 
 //Rute untuk crud admin informasi

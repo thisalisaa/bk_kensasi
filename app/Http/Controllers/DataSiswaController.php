@@ -61,7 +61,7 @@ class DataSiswaController extends Controller
 
     public function show(DataSiswa $datasiswa)
     {
-        return view('datasiswa.show', compact('datasiswa'));
+        return view('biodata1.data-siswa', compact('datasiswa'));
     }
 
     public function edit(DataSiswa $datasiswa)
