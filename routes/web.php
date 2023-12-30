@@ -9,6 +9,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\InformasiController; 
 use App\Http\Controllers\Biodata1Controller;  
 use App\Http\Controllers\BiodataController; 
+use App\Http\Controllers\KeteranganLainController; 
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RedirectController;

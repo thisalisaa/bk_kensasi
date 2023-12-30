@@ -1,92 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>LayananBimbingan</title>
-    <link rel="stylesheet" href="{{asset('css/beranda.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="p-3 bg-primary text-white">
-        <div class="informasi">
-        <img src="assets/image/telephone.png" alt="telephone" width="20px" height="20px">
-        <p class="no">0838-9377-9890</p>
-        <div class="emailpng">
-        <img src="assets/image/email.png" alt="email" width="20px" height="20px" class="emailimg">
-        </div>
-        <p class="email">smkn.1sindang@yahoo.co.id</p> 
-        </div>
-    </div>
-    <div class="p-3  bg-body text-body">
-        <div class="logo">
-        <img src="assets/image/logo87 (1).png" alt="logo" width="150px" height="150px">
-        <h1>BK SMKN 1 Sindang</h1> 
-        <!-- <div class="motto">
-        <h4>Welcome to Center of Excellent School</h4>
-        </div> -->
-        <div class="navbar">
-        <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-        </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Data
+@extends('beranda.layout')
+
+@section('content')
+
+<nav class="navbar navbar-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+        <img src="{{ asset('asset/biru2.jpg') }}" alt="Logo" width="20" height="15" class="d-inline-block align-text-top">
+            <span style="color: #000000; font-size: 14px;">0838-9377-9890</span>
+            <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="15" height="15" class="d-inline-block align-text-top">
+            <span style="color: #000000; font-size: 14px;">smkn.1sindang@yahoo.co.id</span>
+            <a class="ml-auto" style="color: #000000; font-size: 14px;">Login</a>
         </a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Buat Data</a></li>
-            <li><a class="dropdown-item" href="#">Biodata Saya</a></li>
-            <li><a class="dropdown-item" href="#">Perbarui Biodata</a></li>
-        </ul>
-        </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Informasi
-        </a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Pemagangan</a></li>
-            <li><a class="dropdown-item" href="#">Praktik Kerja Lapangan</a></li>
-        </ul>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
+        <div class="d-flex align-items-center">
+        <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
+
+            <div>
+                <b class="informasi-pemagangan">Beranda</b>
+                <p class="smkn-text">SMKN 1 SINDANG</p>
+            </div>
         </div>
-        </div>  
-    </div>
-    <div class="p-3 bg-primary-subtle text-emphasis-primary">
-        <h4 class="link">Yuk Bergabung</h4>
-        <p class="narasi">
-        Pelayanan bimbingan dan konseling sekolah merupakan usaha membantu peserta didik dalam pengembangan kehidupan pribadi,
-        kehidupan sosial, kegiatan belajar, serta perencanaan dan pengembangan karir.
-        </p>
-        <div class="bk">
-        <img src="assets/image/bk.png" alt="bk" width="400px" height="400px">
-        <p class="motto2">Guru BK Sahabat Siswa</p>
+
+        <!-- Tombol toggler untuk navbar -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu navigasi di sebelah kanan -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Beranda</a>
+                <a class="nav-link" href="#">Data</a>
+                <a class="nav-link" href="">Informasi</a>
+            </div>
         </div>
     </div>
-    <div class="p-3 bg-white text-dark">
-    <div class="image">
-    <img src="assets/image/personal-information.png" alt="biodata" width="150px" height="150px" class="mb-3">
-    <img src="assets/image/file.png" alt="informasi" width="150px" height="150px" class="mb-3">
-    <img src="assets/image/problem.png" alt="pengajuan" width="150px" height="150px" class="mb-3">
-    </div>
-    </div>
-    
-    <div class="p-3 bg-primary text-white">
-    <div class="footer" style="display: flex; align-items: center;">
-        <img src="assets/image/logo87 (1).png" alt="logo" width="85px" height="85px">
-        <h5 class="bkensasi" style="margin-left: 10px;">BK SMK Negeri 1 Sindang</h5>
-    </div>
-        <!-- <p>
-            Platform BK Sekolah ini didedikasikan untuk Layanan Bimbingan dan Konseling
-            di SMKN 1 Sindang. Platform ini menyediakan banyak fitur yang akan menjadi alat bantu
-            Konselor Sekolah/Guru Bimbingan dan Konseling
-        </p> -->
-        <div class="alamat">
-        <img src="assets/image/map.png" alt="address" width="50px" height="50px">
-        <p class="text-center">
-            Jl. Mayor Dasuki No.3b, Penganjang, Kec. Sindang, Kabupaten Indramayu, Jawa Barat 45221
-        </p>
+</nav><hr style="margin: 0;">
+
+<div class="p-3 bg-primary-subtle text-emphasis-primary" style="background-color: #AADAEF; padding: 10px;">
+    <div class="content-container" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+        <div class="text-content" style="flex: 1; padding-right: 50px;">
+            <h4 class="link">Yuk Bergabung</h4>
+            <p class="narasi">
+                Pelayanan bimbingan dan konseling sekolah
+                merupakan usaha membantu peserta didik
+                dalam pengembangan kehidupan pribadi,
+                kehidupan sosial, kegiatan belajar, serta
+                perencanaan dan pengembangan karir
+            </p>
+        </div>
+        <div class="image-content" style="flex: 1; text-align: center; padding-right: 5px;">
+            <img src="assets/image/bk.png" alt="bk" style="max-width: 100%; height: auto;">
+            <p class="motto2" style="margin-top: 10px;">Guru BK Sahabat Siswa</p>
         </div>
     </div>
 </div>
 
-</body>
-</html>
+<div class="p-3 bg-white text-dark" style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
+    <img src="assets/image/personal-information.png" alt="biodata" width="150px" height="150px" style="margin: 0 10px;">
+    <img src="assets/image/file.png" alt="informasi" width="150px" height="150px" style="margin: 0 10px;">
+    <img src="assets/image/problem.png" alt="pengajuan" width="150px" height="150px" style="margin: 0 10px;">
+</div>
+
+
