@@ -82,9 +82,9 @@
                     <div class="d-flex justify-content-between">
                         <h5 class="m-0">ORANG TUA / WALI</h5>
                         <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-sm btn-primary" disabled>
+                            <button type="button" class="btn btn-sm btn-primary" href="{{ route('ayah.create') }}" disabled>
                                 <i class="fas fa-edit"></i>
-                                Perbarui Biodata
+                                Tambah Data Orang Tua
                             </button>
                     </div>
                 </div>
@@ -95,30 +95,32 @@
                 <div class="card card-primary card-outline card-outline-tabs">
                     <table class="table table-striped table-responsive-sm">
                         <tbody>
+                        @foreach($ayah as $ayah)
                             <tr>
                                 <th style="width: 300px">Nama Ayah / Wali</th>
-                                <td>Sarip</td>
+                                <td>{{ $ayah->nama }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Pendidikan Terakhir Ayah / Wali</th>
-                                <td>SD</td>
+                                <td>{{ $ayah->pendidikan_terakhir }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Alamat Ayah / Wali Lengkap</th>
-                                <td>Ds.Bulak Blok.Roma</td>
+                                <td>{{ $ayah->alamat_lengkap }}</td>
                             </tr>
                             <tr>
+                            <tr>
+                                <th style="width: 300px">Nomor Telepon / WA</th>
+                                <td>{{ $ayah->nomor_telepon }}</td>
+                            </tr>
                                 <th style="width: 300px">Pekerjaan Ayah / Wali</th>
-                                <td>Petani</td>
+                                <td>{{ $ayah->pekerjaan }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Penghasilan Perbulan Ayah / Wali</th>
-                                <td>Rp500.000</td>
+                                <td>{{ $ayah->penghasilan }}</td>
                             </tr>
-                            <tr>
-                                <th style="width: 300px">Nomor Telepon / WA</th>
-                                <td>-</td>
-                            </tr>
+                            @endforeach
                             <tr>
                                 <th style="width: 300px">Nama Ibu / Wali</th>
                                 <td>Riyati</td>

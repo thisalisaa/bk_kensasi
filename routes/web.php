@@ -11,8 +11,6 @@ use App\Http\Controllers\Biodata1Controller;
 use App\Http\Controllers\BiodataController; 
 use App\Http\Controllers\KeteranganLainController; 
 use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\AyahController;
-use App\Http\Controllers\IbuController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RedirectController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -143,18 +141,3 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-// Ayah routes
-Route::get('/ayah', [AyahController::class, 'index'])->name('ayah.index');
-Route::get('/ayah/create', [AyahController::class, 'create'])->name('ayah.create');
-Route::post('/ayah/store', [AyahController::class, 'store'])->name('ayah.store');
-Route::get('/ayah/{ayah}/edit', [AyahController::class, 'edit'])->name('ayah.edit');
-Route::put('/ayah/{ayah}/update', [AyahController::class, 'update'])->name('ayah.update');
-Route::delete('/ayah/{ayah}/destroy', [AyahController::class, 'destroy'])->name('ayah.destroy');
-
-// Ibu routes
-Route::get('/ibu', [IbuController::class, 'index'])->name('ibu.index');
-Route::get('/ibu/create', [IbuController::class, 'create'])->name('ibu.create');
-Route::post('/ibu/store', [IbuController::class, 'store'])->name('ibu.store');
-Route::get('/ibu/{ibu}/edit', [IbuController::class, 'edit'])->name('ibu.edit');
-Route::put('/ibu/{ibu}/update', [IbuController::class, 'update'])->name('ibu.update');
-Route::delete('/ibu/{ibu}/destroy', [IbuController::class, 'destroy'])->name('ibu.destroy');
