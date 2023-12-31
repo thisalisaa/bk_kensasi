@@ -48,6 +48,7 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
+                <a class="nav-link" href="{{ url('layanan/create') }}">Layanan</a>
             </div>
         </div>
     </div>
@@ -58,10 +59,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div>
-            <h2>Buat Laporan</h2>
-        </div>
-        <div>
-            <a class="btn btn-primary" href="{{ route('layanan.index') }}">Kembali</a>
+            <h2 class="text-center">Buat Laporan</h2>
         </div>
     </div>
 </div>
@@ -101,7 +99,7 @@
     </div>
 <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
-            <button type="button" class="btn btn-success" onclick="openPopup()">Kirim</button>
+            <button type="button" class="btn btn-success" onclick="openPopup()" style="margin-bottom:20px" >Kirim</button>
             <div class="popup" id="popup">
                 <h2>Terima Kasih</h2>
                 <p>Lanjutkan ke WhatsApp</p>

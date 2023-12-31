@@ -49,6 +49,7 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
+                <a class="nav-link" href="{{ url('layanan/create') }}">Layanan</a>
             </div>
         </div>
     </div>
@@ -88,6 +89,7 @@
     </div>
 </div>
 
+
 <footer class="bg-primary text-light text-center py-3">
     <div class="container-fluid">
         <div class="row">
@@ -103,9 +105,6 @@
             </div>
         </div>
     </div>
-    <a href="{{ url('/layanan/create') }}">
-            <img src="{{ asset('assets/image/call-icon.png') }}" alt="call-info" class="call-info" style="width: 50px; height: auto; margin-left: 800px;">
-        </a>
     <p class="mb-0">copyright &copy; 2023 BK SMKN 1 SINDANG.</p>
 </footer>
 
