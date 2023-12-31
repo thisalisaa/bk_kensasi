@@ -66,11 +66,17 @@ Route::middleware(['auth'])->group(function () {
 });
 // Rute untuk data siswa
 Route::resource('datasiswa', DataSiswaController::class);
+<<<<<<< HEAD
 //Route::get('/datasiswa', [DataSiswaController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
 });
+=======
+// routes/web.php
+Route::delete('datasiswa/{datasiswa}', 'DataSiswaController@destroy')->name('datasiswa.destroy');
+
+>>>>>>> 68a7de571d5fe9447e2369b4faff1cb40c8db3b5
 
 // Rute untuk login
 Route::middleware(['guest'])->group(function () {
@@ -118,7 +124,30 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
+<<<<<<< HEAD
 // Rute untuk home setelah login
+=======
+//route layanan dan keterangan lain
+Route::resource('/layanan', LayananMasalahController::class);
+
+Route::resource('/keteranganlain', KeteranganLainController::class);
+
+//route beranda
+Route::get('/beranda',function(){
+    return view('beranda/index');
+});
+
+//route unduh biodata
+Route::get('/biodata/cetak_pdf', [BiodataController::class,'cetak_pdf']);
+Route::get('/biodata', [BiodataController::class, 'biodata']);
+
+//route home
+Auth::routes();
+
+>>>>>>> 68a7de571d5fe9447e2369b4faff1cb40c8db3b5
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes(['verify' => true]);
