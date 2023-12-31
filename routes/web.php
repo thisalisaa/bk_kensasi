@@ -64,9 +64,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
     Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
 });
-
-//rute untuk crud data siswa
+// Rute untuk data siswa
 Route::resource('datasiswa', DataSiswaController::class);
+//Route::get('/datasiswa', [DataSiswaController::class, 'index']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Rute untuk login
 Route::middleware(['guest'])->group(function () {
@@ -75,33 +79,23 @@ Route::middleware(['guest'])->group(function () {
 });
 
 // Rute untuk logout
-Route::middleware(['auth', 'checkrole:1,2,3'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::any('/redirect', [RedirectController::class, 'cek']);
 });
 
-// Rute untuk superadmin
 Route::middleware(['auth', 'checkrole:1'])->group(function () {
-    Route::get('/superadmin', [SuperadminController::class, 'index']);
+    Route::get('/superadmin', [SuperadminController::class, 'index'])->name('superadmin.index');
 });
 
-// Rute untuk guru
 Route::middleware(['auth', 'checkrole:2'])->group(function () {
-    Route::get('/guru', [GuruController::class, 'index']);
+    Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
 });
 
-// Rute untuk siswa
 Route::middleware(['auth', 'checkrole:3'])->group(function () {
-    Route::get('/siswa', [SiswaController::class, 'index']);
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 });
-//rute registrasi
-Route::middleware(['web', 'guest'])->group(function () {
-    // Tampilkan formulir registrasi
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
 
-    // Proses formulir registrasi
-    Route::post('/register', [RegisterController::class, 'register'])->name('register.process');
-});
 
 // Rute registrasi
 Route::middleware(['web', 'guest'])->group(function () {
@@ -124,23 +118,10 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
-//route layanan dan keterangan lain
-Route::resource('/layanan', LayananMasalahController::class);
-Route::resource('/keteranganlain', KeteranganLainController::class);
-
-//route beranda
-Route::get('/beranda',function(){
-    return view('beranda/index');
-});
-
-//route unduh biodata
-Route::get('/biodata/cetak_pdf', [BiodataController::class,'cetak_pdf']);
-Route::get('/biodata', [BiodataController::class, 'biodata']);
-
-//route home
-Auth::routes();
-
+// Rute untuk home setelah login
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes(['verify' => true]);
 
 // Ayah routes
 Route::get('/ayah', [AyahController::class, 'index'])->name('ayah.index');

@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Log;
 class DataSiswaController extends Controller
 {
     public function index()
-    {
-        $datasiswa = DataSiswa::latest()->paginate(5);
+{
+    $datasiswa = DataSiswa::latest()->paginate(5);
 
-        return view('datasiswa.index', compact('datasiswa'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+    return view('datasiswa.index', compact('datasiswa'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
+}
 
     public function create()
     {
@@ -61,7 +61,7 @@ class DataSiswaController extends Controller
 
     public function show(DataSiswa $datasiswa)
     {
-        return view('biodata1.data-siswa', compact('datasiswa'));
+        return view('datasiswa.show', compact('datasiswa'));
     }
 
     public function edit(DataSiswa $datasiswa)
@@ -102,6 +102,6 @@ class DataSiswaController extends Controller
     {
         $datasiswa->delete();
 
-        return redirect()->route('datasiswa.index')->with('success', 'Data siswa deleted successfully');
-    }
+    return redirect()->route('datasiswa.index')->with('success', 'Data siswa deleted successfully');
+}
 }
