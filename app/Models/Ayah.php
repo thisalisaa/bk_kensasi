@@ -23,6 +23,11 @@ class Ayah extends Model
     {
         return $this->belongsTo(Ibu::class);
     }
+
+    public function siswa()
+    {
+        return $this->belongsTo(DataSiswa::class);
+    }
 }
     // Jika diperlukan, Anda juga dapat menambahkan relasi atau metode lain di sini.
 

@@ -46,24 +46,16 @@ Route::get('/beranda1',function(){
 
 //Rute untuk crud admin informasi
 Route::resource('/informasi', InformasiController::class);
+
 //tampilan informasi untuk siswa
 Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
+
 //tampilan biodata
 Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
 Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
 Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
 Route::get('/biodata/perbarui-data', [Biodata1Controller::class, 'update']);
 Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
-
-
-//Rute untuk tampilan profil blum bener
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
-    Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');
-    Route::post('/updateprofil', [ProfilController::class, 'updateProfile'])->name('profil.updateprofil');
-    Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
-    Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
-});
 
 //rute untuk crud data siswa
 Route::resource('datasiswa', DataSiswaController::class);
@@ -94,6 +86,7 @@ Route::middleware(['auth', 'checkrole:2'])->group(function () {
 Route::middleware(['auth', 'checkrole:3'])->group(function () {
     Route::get('/siswa', [SiswaController::class, 'index']);
 });
+
 //rute registrasi
 Route::middleware(['web', 'guest'])->group(function () {
     // Tampilkan formulir registrasi
@@ -124,8 +117,10 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
-//route layanan dan keterangan lain
+//route layanan 
 Route::resource('/layanan', LayananMasalahController::class);
+
+//route keterangan lain
 Route::resource('/keteranganlain', KeteranganLainController::class);
 
 //route beranda

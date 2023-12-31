@@ -82,9 +82,10 @@
                     <div class="d-flex justify-content-between">
                         <h5 class="m-0">ORANG TUA / WALI</h5>
                         <div class="btn-group btn-group-sm" role="group">
-                        <a href="{{ route('ayah.create') }}" class="btn btn-primary">Tambah Ayah</a>
+                            <button type="button" class="btn btn-sm btn-primary" href="{{ route('ayah.create') }}" disabled>
+                                <i class="fas fa-edit"></i>
+                                Tambah Data Orang Tua
                             </button>
-                        </div>
                     </div>
                 </div>
             </div>

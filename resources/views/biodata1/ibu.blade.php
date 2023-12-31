@@ -95,52 +95,32 @@
                 <div class="card card-primary card-outline card-outline-tabs">
                     <table class="table table-striped table-responsive-sm">
                         <tbody>
-                        @foreach($ayah as $ayah)
-                            <tr>
-                                <th style="width: 300px">Nama Ayah / Wali</th>
-                                <td>{{ $ayah->nama }}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 300px">Pendidikan Terakhir Ayah / Wali</th>
-                                <td>{{ $ayah->pendidikan_terakhir }}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 300px">Alamat Ayah / Wali Lengkap</th>
-                                <td>{{ $ayah->alamat_lengkap }}</td>
-                            </tr>
-                            <tr>
-                            <tr>
-                                <th style="width: 300px">Nomor Telepon / WA</th>
-                                <td>{{ $ayah->nomor_telepon }}</td>
-                            </tr>
-                                <th style="width: 300px">Pekerjaan Ayah / Wali</th>
-                                <td>{{ $ayah->pekerjaan }}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 300px">Penghasilan Perbulan Ayah / Wali</th>
-                                <td>{{ $ayah->penghasilan }}</td>
-                            </tr>
-                            @endforeach
+                        @foreach($ibu as $ibu)
                             <tr>
                                 <th style="width: 300px">Nama Ibu / Wali</th>
-                                <td>Riyati</td>
+                                <td>{{ $ibu->nama }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Pendidikan Terakhir Ibu / Wali</th>
-                                <td>SD</td>
+                                <td>{{ $ibu->pendidikan_terakhir }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 300px">Pekerjaan Ibu / Wali</th>
-                                <td>Ibu Rumah Tangga</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 300px">Penghasilan Perbulan Ibu / Wali</th>
-                                <td>-</td>
+                                <th style="width: 300px">Alamat Ibu / Wali</th>
+                                <td>{{ $ibu->alamat_lengkap }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Nomor Telepon/WA</th>
-                                <td>08955784496</td>
+                                <td>{{ $ibu->nomor_telepon }}</td>
                             </tr>
+                            <tr>
+                                <th style="width: 300px">Pekerjaan Ibu / Wali</th>
+                                <td>{{ $ibu->pekerjaan }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 300px">Penghasilan Perbulan Ibu / Wali</th>
+                                <td>{{ $ibu->penghasilan }}</td>
+                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
