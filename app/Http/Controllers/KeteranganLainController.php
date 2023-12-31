@@ -45,7 +45,7 @@ class KeteranganLainController extends Controller
      */
     public function show(KeteranganLain $keterangan)
     {
-    return view('keteranganlain.show', compact('keterangan'));
+    return view('biodata1.data-siswa', compact('keterangan'));
     }
     
     /**

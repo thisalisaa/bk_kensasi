@@ -107,7 +107,6 @@ class InformasiController extends Controller
         $informasi->delete();
 
         return redirect()->route('informasi.index')
-        ->with('success', 'Informasi created successfully.')
-        ->with('popup', true); // Tambahkan flag popup
+        ->with('success', 'Informasi created successfully.');
     }
 }

@@ -1,16 +1,20 @@
-@extends('biodata.layout')
+@extends('biodata1.layout')
 
 @section('content')
 
 <nav class="navbar navbar-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-        <img src="{{ asset('asset/biru2.jpg') }}" alt="Logo" width="20" height="15" class="d-inline-block align-text-top">
-            <span style="color: #000000; font-size: 14px;">0838-9377-9890</span>
-            <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="15" height="15" class="d-inline-block align-text-top">
-            <span style="color: #000000; font-size: 14px;">smkn.1sindang@yahoo.co.id</span>
-            <a class="ml-auto" style="color: #000000; font-size: 14px;">Login</a>
+            <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>
+            <span style="color: #000000; font-size: 14px; margin-left: 5px;">0838-9377-9890</span>
+            <i class="fas fa-envelope" style="color: #000000; font-size: 14px;"></i>
+            <span style="color: #000000; font-size: 14px; margin-left: 5px;">smkn.1sindang@yahoo.co.id</span>
         </a>
+        <a class="ml-auto" href="{{ url('/register') }}" style="color: #000000; font-size: 14px;">
+        <i class="fas fa-user" style="color: #000000; font-size: 14px;"></i>
+        <span style="margin-left: 5px;">Login</span>
+        </a>
+
     </div>
 </nav>
 
@@ -18,10 +22,10 @@
     <div class="container-fluid">
         <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
         <div class="d-flex align-items-center">
-        <img src="{{ asset('asset/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
+        <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
 
             <div>
-                <b class="informasi-pemagangan">Biodata Siswa</b>
+                <b class="informasi-pemagangan">Beranda</b>
                 <p class="smkn-text">SMKN 1 SINDANG</p>
             </div>
         </div>
@@ -34,9 +38,17 @@
         <!-- Menu navigasi di sebelah kanan -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="#">Beranda</a>
-                <a class="nav-link" href="#">Data</a>
-                <a class="nav-link" href="">Informasi</a>
+                <a class="nav-link" href="{{ url('/beranda') }}">Beranda</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Data
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('datasiswa.create') }}">Buat Data</a></li>
+                    <li><a class="dropdown-item" href="{{ url('biodata/data-siswa') }}">Biodata Saya</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
             </div>
         </div>
     </div>
@@ -47,16 +59,16 @@
         <div class="card-header p-0 border-bottom-0">
             <ul class="nav nav-tabs" id="formulir-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/data-siswa*') ? 'active' : '' }}" href="{{ url('/biodata/data-siswa') }}">Biodata Diri</a>
+                    <a class="nav-link {{ Request::is('biodata1/data-siswa*') ? 'active' : '' }}" href="{{ url('/biodata/data-siswa') }}">Biodata Diri</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/orang-tua*') ? 'active' : '' }}" href="{{ url('/biodata/orang-tua') }}">Orang Tua</a>
+                    <a class="nav-link {{ Request::is('biodata1/orang-tua*') ? 'active' : '' }}" href="{{ url('/biodata/orang-tua') }}">Orang Tua</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/keterangan-lain*') ? 'active' : '' }}" href="{{ url('/biodata/keterangan-lain') }}">Keterangan Lain</a>
+                    <a class="nav-link {{ Request::is('biodata1/keterangan-lain*') ? 'active' : '' }}" href="{{ url('/biodata/keterangan-lain') }}">Keterangan Lain</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('biodata/unduh-data*') ? 'active' : '' }}" href="{{ url('/biodata/unduh-data') }}">Unduh Data</a>
+                    <a class="nav-link {{ Request::is('biodata1/unduh-data*') ? 'active' : '' }}" href="{{ url('/biodata/unduh-data') }}">Unduh Data</a>
                 </li>
             </ul>
         </div>
@@ -70,9 +82,9 @@
                     <div class="d-flex justify-content-between">
                         <h5 class="m-0">ORANG TUA / WALI</h5>
                         <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-sm btn-primary" disabled>
+                            <button type="button" class="btn btn-sm btn-primary" href="{{ route('ayah.create') }}" disabled>
                                 <i class="fas fa-edit"></i>
-                                Perbarui Biodata
+                                Tambah Data Orang Tua
                             </button>
                     </div>
                 </div>
@@ -83,30 +95,32 @@
                 <div class="card card-primary card-outline card-outline-tabs">
                     <table class="table table-striped table-responsive-sm">
                         <tbody>
+                        @foreach($ayah as $ayah)
                             <tr>
                                 <th style="width: 300px">Nama Ayah / Wali</th>
-                                <td>Sarip</td>
+                                <td>{{ $ayah->nama }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Pendidikan Terakhir Ayah / Wali</th>
-                                <td>SD</td>
+                                <td>{{ $ayah->pendidikan_terakhir }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Alamat Ayah / Wali Lengkap</th>
-                                <td>Ds.Bulak Blok.Roma</td>
+                                <td>{{ $ayah->alamat_lengkap }}</td>
                             </tr>
                             <tr>
+                            <tr>
+                                <th style="width: 300px">Nomor Telepon / WA</th>
+                                <td>{{ $ayah->nomor_telepon }}</td>
+                            </tr>
                                 <th style="width: 300px">Pekerjaan Ayah / Wali</th>
-                                <td>Petani</td>
+                                <td>{{ $ayah->pekerjaan }}</td>
                             </tr>
                             <tr>
                                 <th style="width: 300px">Penghasilan Perbulan Ayah / Wali</th>
-                                <td>Rp500.000</td>
+                                <td>{{ $ayah->penghasilan }}</td>
                             </tr>
-                            <tr>
-                                <th style="width: 300px">Nomor Telepon / WA</th>
-                                <td>-</td>
-                            </tr>
+                            @endforeach
                             <tr>
                                 <th style="width: 300px">Nama Ibu / Wali</th>
                                 <td>Riyati</td>
@@ -142,16 +156,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-            <img src="{{ asset('asset/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
+            <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
                 <h5 style=" font-size: 15px;">BK SMKN 1 SINDANG</h5>
                 <p style=" font-size: 15px;">Platform BK Sekolah ini didedikasikan untuk Layanan Bimbingan dan Konseling di SMKN 1 Sindang. Platform ini menyediakan banyak fitur yang akan menjadi alat bantu Konselor Sekolah/Guru Bimbingan dan Konseling</p>
             </div>
             <div class="col-md-6 text-md-right">
-            <img src="{{ asset('asset/map.png') }}" alt="Logo map" class="logo-map">
+            <img src="{{ asset('assets/image/map.png') }}" alt="Logo map" class="logo-map">
                 <h5 style=" font-size: 15px;">ADDRESS</h5>
                 <p style=" font-size: 15px;" >Jl. Mayor Dasuki No.3b, Penganjang, Kec. Sindang, Kabupaten Indramayu, Jawa Barat 45221</p>
             </div>
         </div>
     </div>
-    <p class="mb-0">&copy; 2023 BK KENSASI.</p>
+    <p class="mb-0">copyright &copy; 2023 BK SMKN 1 SINDANG.</p>
 </footer>
+
