@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
-    public function index() {
-        return view('siswa.index');
-    }
+    // Contoh: Tambahkan dd() untuk memeriksa
+public function index() {
+    //dd('SiswaController@index accessed.');
+    // ... logika lainnya
+    return view('siswa.index');
+}
 }

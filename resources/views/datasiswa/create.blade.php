@@ -1,54 +1,9 @@
 @extends('datasiswa.layout')
 @section('content')
-
-<nav class="navbar navbar-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>
-            <span style="color: #000000; font-size: 14px; margin-left: 5px;">0838-9377-9890</span>
-            <i class="fas fa-envelope" style="color: #000000; font-size: 14px;"></i>
-            <span style="color: #000000; font-size: 14px; margin-left: 5px;">smkn.1sindang@yahoo.co.id</span>
-        </a>
-        <a class="ml-auto" href="{{ url('/register') }}" style="color: #000000; font-size: 14px;">
-        <i class="fas fa-user" style="color: #000000; font-size: 14px;"></i>
-        <span style="margin-left: 5px;">Login</span>
-        </a>
-
-    </div>
-</nav>
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
-        <div class="d-flex align-items-center">
-        <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
-
-            <div>
-                <b class="informasi-pemagangan">Buat Data</b>
-                <p class="smkn-text">SMKN 1 SINDANG</p>
-            </div>
-        </div>
-
-        <!-- Tombol toggler untuk navbar -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menu navigasi di sebelah kanan -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="{{ url('/beranda') }}">Beranda</a>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Data
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ route('datasiswa.create') }}">Buat Data</a></li>
-                    <li><a class="dropdown-item" href="{{ url('biodata/data-siswa') }}">Biodata Saya</a></li>
-                    </ul>
-                </div>
-                <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div>
+            <a class="btn btn-primary" href="{{ route('datasiswa.index') }}">Kembali</a>
         </div>
     </div>
 </nav><hr style="margin: 0;">
@@ -60,8 +15,8 @@
 
                 <!-- Header Section: Datasiswa Title and Back Button -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <a class="btn btn-primary" href="{{ route('datasiswa.index') }}">Back</a>
-                    <h2 class="text-center text-white">Datasiswa</h2>
+                    <!-- <a class="btn btn-primary" href="{{ route('datasiswa.index') }}">Back</a> -->
+                    <h2 class="text-center text-white">Data Siswa</h2>
                     <div style="width: 80px;"></div> <!-- Add an empty div for spacing, adjust width as needed -->
                 </div>
 
@@ -82,145 +37,141 @@
     <!-- Add this inside your form -->
     <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
-        <strong>Photo:</strong>
+        <label>Foto diri</label>
         <input type="file" name="foto_siswa" class="form-control" accept="image/jpeg, image/jpg,image/png, image/gif">
     </div>
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>NISN:</strong>
+                <label>NISN:</label>
                 <input type="text" name="nisn" class="form-control" >
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Lengkap:</strong>
+                <label>Nama Lengkap:</label>
                 <input class="form-control" name="nama" ></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kelas:</strong>
+                <label>Kelas:</label>
                 <input class="form-control" name="kelas" ></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-            <strong>Jenis Kelamin:</strong>
-            <select class="form-select" aria-label="Default select example" name="jk">
-            <option selected>Pilih Jenis Kelamin</option>
-            <option value="Perempuan">Perempuan</option>
-            <option value="Laki-laki">Laki-laki</option>
-            </select>
+                <label>Jenis Kelamin:</label>
+                <input class="form-control" name="jk" ></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tempat Tanggal Lahir:</strong>
-            <input class="form-control" name="ttl">
+                <label>Tempat Tanggal Lahir:</label>
+                <input class="form-control" name="ttl" ></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Agama/Kepercayaaan:</strong>
+                <label>Agama/Kepercayaaan:</label>
                 <input class="form-control" name="agama"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Bahasa Pengantar Dirumah:</strong>
+                <label>Bahasa Pengantar Dirumah:</label>
                 <input class="form-control" name="bahasa" ></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Anak Ke:</strong>
+                <label>Anak Ke:</label>
                 <input class="form-control" name="anak_ke"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jumlah Saudara Kandung:</strong>
+                <label>Jumlah Saudara Kandung:</label>
                 <input class="form-control" name="jumlah_saudara"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Alamat Peserta Didik/Siswa:</strong>
+                <label>Alamat Peserta Didik/Siswa:</label>
                 <input class="form-control" name="alamat_siswa"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nomor Telepon/WA:</strong>
+                <label>Nomor Telepon/WA:</label>
                 <input class="form-control" name="no_telepon"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tinggal dengan:</strong>
+                <label>Tinggal dengan:</label>
                 <input class="form-control" name="tinggal_dengan"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jarak Dari Rumah Ke Sekolah:</strong>
+                <label>Jarak Dari Rumah Ke Sekolah:</label>
                 <input class="form-control" name="jarak_kesekolah"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Kendaraan Kesekolah:</strong>
+        <div class="form-group">
+                <label>Kendaraan Kesekolah:</label>
                 <input class="form-control" name="kendaraan"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Asal Sekolah SMP/MTS:</strong>
+        <div class="form-group">
+                <label>Asal Sekolah SMP/MTS:</label>
                 <input class="form-control" name="asal sekolah"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Berat Badan:</strong>
+        <div class="form-group">
+                <label>Berat Badan(kg):</label>
                 <input class="form-control" name="bb"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Tinggi Badan:</strong>
+        <div class="form-group">
+                <label>Tinggi Badan(cm):</label>
                 <input class="form-control" name="tb"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Golongan Darah:</strong>
+        <div class="form-group">
+                <label>Golongan Darah:</label>
                 <input class="form-control" name="gol_darah"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Riwayat Penyakit:</strong>
+        <div class="form-group">
+                <label>Riwayat Penyakit:</label>
                 <input class="form-control" name="riwayat_penyakit"></input>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
-            <button type="submit" class="btn btn-success">Submit</button>
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+            <a class="btn btn-primary" href="{{ route('datasiswa.index') }}">Next</a>
         </div>
 </div>   
 </div>

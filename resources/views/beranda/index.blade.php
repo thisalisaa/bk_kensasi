@@ -49,6 +49,7 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
+                <a class="nav-link" href="{{ url('layanan/create') }}">Layanan</a>
             </div>
         </div>
     </div>
@@ -87,6 +88,7 @@
         <p style="margin-top: 20px;">Pengajuan Perundungan</p>
     </div>
 </div>
+
 
 <footer class="bg-primary text-light text-center py-3">
     <div class="container-fluid">

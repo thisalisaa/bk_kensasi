@@ -102,9 +102,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Jenis Kelamin:</strong>
-                    <input class="form-control" name="jk" value="{{ $datasiswa->jk }}">
+                    <select class="form-select" aria-label="Default select example" name="jk">
+                        <option value="Perempuan" {{ $datasiswa->jk === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                        <option value="Laki-laki" {{ $datasiswa->jk === 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                    </select>
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tempat Tanggal Lahir:</strong>
