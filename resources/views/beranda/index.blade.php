@@ -10,7 +10,7 @@
             <i class="fas fa-envelope" style="color: #000000; font-size: 14px;"></i>
             <span style="color: #000000; font-size: 14px; margin-left: 5px;">smkn.1sindang@yahoo.co.id</span>
         </a>
-        <a class="ml-auto" href="{{ url('/register') }}" style="color: #000000; font-size: 14px;">
+        <a class="ml-auto" href="{{ url('login') }}" style="color: #000000; font-size: 14px;">
         <i class="fas fa-user" style="color: #000000; font-size: 14px;"></i>
         <span style="margin-left: 5px;">Login</span>
         </a>
