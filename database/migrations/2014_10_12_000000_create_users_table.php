@@ -19,6 +19,25 @@ return new class extends Migration
             $table->string('password');
             // tambahan untuk role id ditable role
             $table->unsignedBigInteger('role_id');
+            // $table->string('foto_siswa');
+            $table->string('nisn');
+            $table->string('kelas');
+            $table->string('jk');
+            $table->string('ttl');
+            $table->string('agama');
+            $table->string('bahasa');
+            $table->string('anak_ke');
+            $table->string('jumlah_saudara');
+            $table->string('alamat_siswa');
+            $table->string('no_telepon');
+            $table->string('tinggal_dengan');
+            $table->string('jarak_kesekolah');
+            $table->string('kendaraan');
+            $table->string('asal_sekolah');
+            $table->string('bb');
+            $table->string('tb');
+            $table->string('gol_darah');
+            $table->string('riwayat_penyakit');
             $table->rememberToken();
             $table->timestamps();
         });

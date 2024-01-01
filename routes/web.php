@@ -35,7 +35,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/layanan', LayananMasalahController::class);
 Route::get('/beranda',function(){
     return view('beranda/index');
 });
@@ -46,31 +45,19 @@ Route::get('/beranda1',function(){
 
 //Rute untuk crud admin informasi
 Route::resource('/informasi', InformasiController::class);
-
 //tampilan informasi untuk siswa
 Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
-
 //tampilan biodata
-Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
-Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
-Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
-Route::get('/biodata/perbarui-data', [Biodata1Controller::class, 'update']);
-Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
-
-<<<<<<< HEAD
-//rute untuk crud data siswa
-=======
-
-//Rute untuk tampilan profil blum bener
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
-    Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');
-    Route::post('/updateprofil', [ProfilController::class, 'updateProfile'])->name('profil.updateprofil');
-    Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
-    Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
+Route::middleware(['auth', 'checkrole:3'])->group(function () {
+    Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
+    Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
+    Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
+    Route::get('/edit-biodata/{id}', [Biodata1Controller::class, 'edit'])->name('biodata1.edit');
+    Route::put('/biodata/{id}', [Biodata1Controller::class, 'update'])->name('biodata.update');
+    Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
 });
+
 // Rute untuk data siswa
->>>>>>> e8ea694326d42dcd57b565e7655af7543f863255
 Route::resource('datasiswa', DataSiswaController::class);
 
 // Rute untuk login
@@ -96,14 +83,6 @@ Route::middleware(['auth', 'checkrole:2'])->group(function () {
 Route::middleware(['auth', 'checkrole:3'])->group(function () {
     Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 });
-<<<<<<< HEAD
-
-//rute registrasi
-Route::middleware(['web', 'guest'])->group(function () {
-    // Tampilkan formulir registrasi
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
-=======
->>>>>>> e8ea694326d42dcd57b565e7655af7543f863255
 
 
 // Rute registrasi
@@ -127,23 +106,10 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-//route layanan 
-Route::resource('/layanan', LayananMasalahController::class);
 
-//route keterangan lain
-=======
-<<<<<<< HEAD
-// Rute untuk home setelah login
-=======
-=======
-
->>>>>>> 73037d316e7f71fbbd07eb7479c44e345ba2767d
 //route layanan dan keterangan lain
 Route::resource('/layanan', LayananMasalahController::class);
 
->>>>>>> e8ea694326d42dcd57b565e7655af7543f863255
 Route::resource('/keteranganlain', KeteranganLainController::class);
 
 //route beranda
