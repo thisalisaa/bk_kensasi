@@ -122,17 +122,15 @@
                 <td>{{ $siswa->gol_darah }}</td>
                 <td>{{ $siswa->riwayat_penyakit }}</td>
                 <td>
-                    <form action="{{ route('datasiswa.destroy', $siswa->id_siswa) }}" method="POST">
+                <form action="{{ route('datasiswa.destroy', $siswa->id_siswa) }}" method="POST">
+                <a class="btn btn-info" href="{{ route('datasiswa.show', $siswa->id_siswa) }}">Show</a>
+                <a class="btn btn-primary" href="{{ route('datasiswa.edit', $siswa->id_siswa) }}">Edit</a>
 
-                        <a class="btn btn-info" href="{{ route('datasiswa.show', $siswa->id_siswa) }}">Show</a>
+                @csrf
+                @method('DELETE')
 
-                        <a class="btn btn-primary" href="{{ route('datasiswa.edit', $siswa->id_siswa) }}">Edit</a>
-
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
                 </td>
             </tr>
         @endforeach

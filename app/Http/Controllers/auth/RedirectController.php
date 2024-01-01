@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 
 class RedirectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function cek() {
         // Cek apakah pengguna terautentikasi
         if (auth()->check()) {
@@ -29,6 +33,7 @@ class RedirectController extends Controller
             return redirect('/login');
         }
     }
+    
     
     
 }

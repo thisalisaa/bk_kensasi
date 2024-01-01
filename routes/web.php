@@ -35,7 +35,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/layanan', LayananMasalahController::class);
 Route::get('/beranda',function(){
     return view('beranda/index');
 });
@@ -49,27 +48,17 @@ Route::resource('/informasi', InformasiController::class);
 //tampilan informasi untuk siswa
 Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
 //tampilan biodata
-Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
-Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
-Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
-Route::get('/biodata/perbarui-data', [Biodata1Controller::class, 'update']);
-Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
-
-
-//Rute untuk tampilan profil blum bener
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profil', [ProfilController::class, 'show'])->name('profil.profil');
-    Route::post('/updatefoto', [ProfilController::class, 'updatePhoto'])->name('profil.updatefoto');
-    Route::post('/updateprofil', [ProfilController::class, 'updateProfile'])->name('profil.updateprofil');
-    Route::post('/changepassword', [ProfilController::class, 'changePassword'])->name('profil.ubahpw');
-    Route::get('/canceledit', [ProfilController::class, 'cancelEdit'])->name('profil.cancel');
+Route::middleware(['auth', 'checkrole:3'])->group(function () {
+    Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
+    Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
+    Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
+    Route::get('/edit-biodata/{id}', [Biodata1Controller::class, 'edit'])->name('biodata1.edit');
+    Route::put('/biodata/{id}', [Biodata1Controller::class, 'update'])->name('biodata.update');
+    Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
 });
 
-//rute untuk crud data siswa
+// Rute untuk data siswa
 Route::resource('datasiswa', DataSiswaController::class);
-// routes/web.php
-Route::delete('datasiswa/{datasiswa}', 'DataSiswaController@destroy')->name('datasiswa.destroy');
-
 
 // Rute untuk login
 Route::middleware(['guest'])->group(function () {
@@ -78,33 +67,23 @@ Route::middleware(['guest'])->group(function () {
 });
 
 // Rute untuk logout
-Route::middleware(['auth', 'checkrole:1,2,3'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::any('/redirect', [RedirectController::class, 'cek']);
 });
 
-// Rute untuk superadmin
 Route::middleware(['auth', 'checkrole:1'])->group(function () {
-    Route::get('/superadmin', [SuperadminController::class, 'index']);
+    Route::get('/superadmin', [SuperadminController::class, 'index'])->name('superadmin.index');
 });
 
-// Rute untuk guru
 Route::middleware(['auth', 'checkrole:2'])->group(function () {
-    Route::get('/guru', [GuruController::class, 'index']);
+    Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
 });
 
-// Rute untuk siswa
 Route::middleware(['auth', 'checkrole:3'])->group(function () {
-    Route::get('/siswa', [SiswaController::class, 'index']);
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 });
-//rute registrasi
-Route::middleware(['web', 'guest'])->group(function () {
-    // Tampilkan formulir registrasi
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
 
-    // Proses formulir registrasi
-    Route::post('/register', [RegisterController::class, 'register'])->name('register.process');
-});
 
 // Rute registrasi
 Route::middleware(['web', 'guest'])->group(function () {
@@ -127,6 +106,7 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
+
 //route layanan dan keterangan lain
 Route::resource('/layanan', LayananMasalahController::class);
 
@@ -148,6 +128,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes(['verify' => true]);
 
 // Ayah routes
 Route::get('/ayah', [AyahController::class, 'index'])->name('ayah.index');

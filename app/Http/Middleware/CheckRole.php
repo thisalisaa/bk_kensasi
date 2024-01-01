@@ -23,4 +23,6 @@ class CheckRole
 
         return redirect('/redirect');
     }
+
+    
 }

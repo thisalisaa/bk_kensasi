@@ -1,11 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
 class Biodata1Controller extends Controller 
 {
+    public function index() {
+        // Mengambil semua data siswa
+    $users = User::all();
+
+    // Mengirim data siswa ke view
+    return view('biodata1.data-siswa', compact('users'));
+    }
     public function getDataSiswa() {
         return view('biodata1.data-siswa');
     }
@@ -18,11 +26,22 @@ class Biodata1Controller extends Controller
         return view('biodata1.keterangan-lain');
     }
 
-    public function update() {
-        return view('biodata1.perbarui-data');
-    }
-    
     public function getUnduhData() {
         return view('biodata1.unduh-data');
     }
+
+    public function edit($id)
+{
+    $user = User::findOrFail($id);
+    return view('biodata1.perbarui-data', compact('user'));
+}
+
+public function update(Request $request, $id)
+{
+    $user = User::findOrFail($id);
+    $user->update($request->all());
+    
+    // Redirect setelah update data
+    return redirect()->route('Biodata1.index');
+}
 }

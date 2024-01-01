@@ -14,4 +14,8 @@ class KeteranganLain extends Model
     protected $fillable = [
         'keterangan1','keterangan2', 'keterangan3', 'keterangan4'
     ];
+    public function siswa()
+    {
+        return $this->belongsTo(DataSiswa::class);
+    }
 }
