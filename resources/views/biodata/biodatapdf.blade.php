@@ -62,11 +62,11 @@
 			<li>Minat setelah lulus SMK:</li>
 			<li>Cita-cita pekerjaan:</li>
 			<li>Kegiatan Ekstrakulikuler:</li>
-			<li>Apakah kamu pernah membaca/menonton vidio porno?:</li>
-			<li>Apakah kamu pernah memakai obat-obatan terlarang?:</li>
-			<li>Apakah kamu pernah merokok?:</li>
-			<li>Apakah orang tua memberikan perhatian ke kamu?:</li>
-			<li>Apakah kamu berbicara dengan orang tua di rumah?:</li>
+			<li>Apakah kamu pernah membaca/menonton vidio porno?</li>
+			<li>Apakah kamu pernah memakai obat-obatan terlarang?</li>
+			<li>Apakah kamu pernah merokok?</li>
+			<li>Apakah orang tua memberikan perhatian ke kamu?</li>
+			<li>Apakah kamu berbicara dengan orang tua di rumah?</li>
 			<li>Berkomunikasi dengan saudara/keluarga lainnya</li>
 			<li>Saya didalam keluarga: </li>
 			<li>Ceritakan masalah paling berat yang pernah kamu alami: </li>

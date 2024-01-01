@@ -22,21 +22,37 @@ class LayananMasalahController extends Controller
         return view('layanan.create');
     }
   
-    public function store(Request $request)
-    {
-        $request->validate([
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
             
-            'nama' => 'required',
-            'kelas' => 'required',
-            'masalah' => 'required',
+    //         'nama' => 'required',
+    //         'kelas' => 'required',
+    //         'masalah' => 'required',
 
-        ]);
+    //     ]);
       
-        LayananMasalah::create($request->all());
+    //     LayananMasalah::create($request->all());
        
-        return redirect()->route('layanan.index')
-                        ->with('success','Laporan Berhasil.');
-    }
+    //     return redirect()->route('layanan.index')
+    //                     ->with('success','Laporan Berhasil.');
+    // }
+    public function store(Request $request)
+{
+    // Validation logic
+    $validatedData = $request->validate([
+        'nama' => 'required|string|max:255',
+        'kelas' => 'required|string|max:255',
+        'masalah' => 'required|string',
+    ]);
+
+    // Store data in the database
+    LayananMasalah::create($validatedData);
+
+    // Redirect or respond as needed
+    return redirect()->route('layanan.index')->with('success', 'Laporan berhasil dibuat!');
+}
+
   
     public function show(LayananMasalah $layanan)
     {
