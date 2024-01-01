@@ -41,6 +41,9 @@ Route::get('/beranda',function(){
 Route::get('/beranda1',function(){
     return view('beranda/index1');
 });
+Route::get('/bk_kensasi',function(){
+    return view('landingpage/index');
+});
 
 
 //Rute untuk crud admin informasi
@@ -148,3 +151,7 @@ Route::put('/ibu/{ibu}/update', [IbuController::class, 'update'])->name('ibu.upd
 Route::delete('/ibu/{ibu}/destroy', [IbuController::class, 'destroy'])->name('ibu.destroy');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
