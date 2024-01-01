@@ -52,6 +52,7 @@ Route::middleware(['auth', 'checkrole:3'])->group(function () {
     Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
     Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
     Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
+    Route::get('/biodata1', [Biodata1Controller::class, 'index'])->name('biodata1.index');
     Route::get('/edit-biodata/{id}', [Biodata1Controller::class, 'edit'])->name('biodata1.edit');
     Route::put('/biodata/{id}', [Biodata1Controller::class, 'update'])->name('biodata.update');
     Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
