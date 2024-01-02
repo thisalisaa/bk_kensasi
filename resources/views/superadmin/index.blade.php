@@ -1,11 +1,27 @@
-@extends('layouts.main')
+<!-- resources/views/dashboard.blade.php -->
 
-@section('contents')
-    <div class="container">
-        <h2>Selamat Datang Superadmin</h2>
-        <form action="/logout" method="post">
-            @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-    </div>
-@endsection
+@extends('layouts.app')
+@section('content')
+@yield('content')
+
+<div class="click-box-container mb-8 " >
+            <div class="click-box">
+                <img src="{{ asset('dash\img1.gif') }}" alt="Image 1" class="box-image">
+                <b class="box-label">Buat data</b>
+                <hr class="horizontal-line">
+                <a href="{{ url('/informasi') }}" class="click-text">Klik disini</a>
+            </div>
+            <!-- <div class="click-box">
+                <img src="{{ asset('dash\img2.gif') }}" alt="Image 2" class="box-image">
+                <b class="box-label">Biodata Saya</b>
+                <hr class="horizontal-line">
+                <a href="#" class="click-text">Klik disini</a>
+            </div>
+            <div class="click-box">
+                <img src="{{ asset('dash\img3.gif') }}" alt="Image 3" class="box-image">
+                <b class="box-label">Perbaharui Biodata</b>
+                <hr class="horizontal-line">
+                <a href="#" class="click-text">Klik disini</a>
+            </div> -->
+        </div>
+        @endsection
