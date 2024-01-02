@@ -3,25 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/nav.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/data.css') }}">
-    <link rel="stylesheet" href="{{asset('css/beranda.css')}}">
-    <!-- Fonts -->
+    <link rel="stylesheet" href="{{asset('css/data.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-primary">
             <div class="container">
             <a class="navbar-brand" href="#">
             <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>
@@ -29,12 +25,9 @@
             <i class="fas fa-envelope" style="color: #000000; font-size: 14px;"></i>
             <span style="color: #000000; font-size: 14px; margin-left: 5px;">smkn.1sindang@yahoo.co.id</span>
             </a>
-                
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,18 +73,15 @@
         <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
         <div class="d-flex align-items-center">
         <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
-
             <div>
                 <b class="informasi-pemagangan">Beranda</b>
                 <p class="smkn-text">SMKN 1 SINDANG</p>
             </div>
         </div>
-
         <!-- Tombol toggler untuk navbar -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Menu navigasi di sebelah kanan -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
@@ -104,11 +94,12 @@
                     <li><a class="dropdown-item" href="{{ url('biodata/data-siswa') }}">Biodata Saya</a></li>
                     </ul>
                 </div>
-                <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
+                <a class="nav-link" href="{{ url('user-informasi') }}">Informasi</a>
             </div>
         </div>
     </div>
-    </nav><hr style="margin: 0;">
+    </nav>
+    <hr style="margin: 0;">
 
         <main class="py-4">
             @yield('content')

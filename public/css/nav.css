@@ -4,13 +4,28 @@
     max-width: 100%;
 }
 
-.navbar {
-    background-color: #02B3FF;
-    color: #000000;
-    font-size: 15x;
+.navbar-primary {
+    background-color: #02B3FF; /* Warna biru muda */
+    color: #060606; /* Warna teks putih */
 }
+
+.navbar-nav .nav-link {
+    margin-left: 10px; /* Menambahkan spasi antar menu */
+    margin-right: 10px;
+    font-size: 16px; /* Ukuran font */
+}
+
+.navbar-brand {
+    display: flex; /* Untuk align items secara horizontal */
+    align-items: center;
+}
+
+.navbar-brand i, .navbar-brand span {
+    margin: 0 5px; /* Spasi antara ikon dan teks */
+}
+
 .navbar-expand-lg.bg-body-tertiary {
-    background-color: #ffffff;
+    background-color: #02B3FF;
     color: #000000;
     margin-bottom: 2px;
     margin-top: 2px;

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="p-3 bg-primary-subtle text-emphasis-primary" style="background-color: #AADAEF; padding: 10px;">
+<div class="p-3 bg-primary-subtle text-emphasis-primary" style="background-color: #ADD8E6; padding: 10px;">
     <div class="content-container" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
         <div class="text-content" style="flex: 1; padding-right: 50px;">
             <h4 class="link">Yuk Bergabung!!</h4>
@@ -21,8 +20,9 @@
     </div>
 </div>
 
-<div class="p-3 text-dark" style="display: flex; justify-content: center; align-items: center; flex-direction: row; background-color: #D6EDF6;">
-    <div style="text-align: center; margin: 0 10px;">
+
+<div class="p-3 text-dark" style="background-color: #D6EDF6; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
+    <div class="icon-container" style="text-align: center; padding: 10px;">
         <img src="assets/image/personal-information.png" alt="biodata" width="150px" height="150px">
         <p style="margin-top: 20px;">Data Siswa</p>
     </div>

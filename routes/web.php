@@ -48,10 +48,12 @@ Route::get('/bk_kensasi',function(){
 
 //Rute untuk crud admin informasi
 Route::resource('/informasi', InformasiController::class);
+
 //tampilan informasi untuk siswa
 Route::get('/user-informasi', [InformasiController::class, 'userIndex'])->name('user.informasi.index');
+
 //tampilan biodata
-Route::middleware(['auth', 'checkrole:3'])->group(function () {
+Route::middleware(['auth', 'checkrole:3'])->group(function () { //gunanya agar ketika belum login tidak bisa melihat data
     Route::get('/biodata/data-siswa', [Biodata1Controller::class, 'getDataSiswa']);
     Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
     Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
