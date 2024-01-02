@@ -152,7 +152,7 @@
                                 <td>@if(Auth::user()->jarak_kesekolah== '-')
                                     <span style="color: red;">Perbarui jarak</span>
                                     @else
-                                    {{ Auth::user()->jarak_kesekolah }}
+                                    {{ Auth::user()->jarak_kesekolah }} km
                                     @endif</td>
                             </tr>
                             <tr>
@@ -176,7 +176,7 @@
                                 <td>@if(Auth::user()->bb== '-')
                                     <span style="color: red;">Perbarui berangkat</span>
                                     @else
-                                    {{ Auth::user()->bb }}
+                                    {{ Auth::user()->bb }} kg
                                     @endif</td>
                             </tr>
                             <tr>
@@ -184,7 +184,7 @@
                                 <td>@if(Auth::user()->tb== '-')
                                     <span style="color: red;">Perbarui berangkat</span>
                                     @else
-                                    {{ Auth::user()->tb }}
+                                    {{ Auth::user()->tb }} cm
                                     @endif</td>
                             </tr>
                             <tr>
@@ -192,7 +192,7 @@
                                 <td>@if(Auth::user()->gol_darah== '-')
                                     <span style="color: red;">Perbarui berangkat</span>
                                     @else
-                                    {{ Auth::user()->asal_sekolah }}
+                                    {{ Auth::user()->gol_darah }}
                                     @endif</td>
                             </tr>
                             <tr>

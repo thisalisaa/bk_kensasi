@@ -18,7 +18,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-primary" >
-            <div class="container" style="background-color: #17a2b8; width: 100%;" >
+            <div class="container" >
             <a class="navbar-brand" href="#">
             <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>
             <span style="color: #000000; font-size: 14px; margin-left: 5px;">0838-9377-9890</span>

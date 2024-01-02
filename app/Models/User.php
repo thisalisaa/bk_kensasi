@@ -42,7 +42,7 @@ class User extends Authenticatable
         'tb',
         'gol_darah',
         'riwayat_penyakit',
-    ];
+    ];    
 
     /**
      * The attributes that should be hidden for serialization.
