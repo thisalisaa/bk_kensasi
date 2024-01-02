@@ -80,6 +80,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', 'checkrole:1'])->group(function () {
     Route::get('/superadmin', [SuperadminController::class, 'index'])->name('superadmin.index');
+// Rute untuk data siswa
+Route::resource('datasiswa', DataSiswaController::class);
+
 });
 
 Route::middleware(['auth', 'checkrole:2'])->group(function () {

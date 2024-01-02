@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('contents')
     <nav class="navbar navbar-sm">
