@@ -48,6 +48,7 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
+                <a class="nav-link" href="{{ url('layanan/create') }}">Layanan</a>
             </div>
         </div>
     </div>
@@ -56,11 +57,11 @@
     <div class="row mt-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-start">
-                <h2>Laporkan Perundunganmu Disini</h2>
+                <h4 class="text-center">History Laporan Perundungan</h4>
             </div>
-            <div class="float-end">
+            <!-- <div class="float-end">
                 <a class="btn btn-success" href="{{ route('layanan.create') }}">Buat Laporan</a>
-            </div>
+            </div> -->
         </div>
     </div>
    

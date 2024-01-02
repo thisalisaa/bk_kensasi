@@ -35,4 +35,15 @@ class DataSiswa extends Model
         'gol_darah',
         'riwayat_penyakit',
     ];
+
+    // Definisikan relasi ke KeteranganLain
+    public function keteranganLain()
+    {
+        return $this->hasMany(KeteranganLain::class);
+    }
+
+    public function ayah()
+    {
+        return $this->hasOne(Ayah::class);
+    }
 }

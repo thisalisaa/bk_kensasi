@@ -48,6 +48,7 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
+                <a class="nav-link" href="{{ url('layanan/create') }}">Layanan</a>
             </div>
         </div>
     </div>

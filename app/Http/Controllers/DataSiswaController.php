@@ -60,9 +60,10 @@ class DataSiswaController extends Controller
         return redirect()->route('datasiswa.index')->with('success', 'Data Siswa berhasil dibuat.');
     }
 
-    public function show(DataSiswa $datasiswa)
+    public function show()
     {
-        return view('datasiswa.show', compact('datasiswa'));
+        $biodata = Auth::user()->name;
+        return view('datasiswa.show', compact('biodata'));
     }
 
     public function edit(DataSiswa $datasiswa)
