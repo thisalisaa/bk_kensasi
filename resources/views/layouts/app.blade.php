@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="stylesheet" href="{{asset('css/nav.css')}}">
     <link rel="stylesheet" href="{{asset('css/data.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -17,7 +17,7 @@
 
 <body>
     <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-primary">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-primary" >
             <div class="container">
             <a class="navbar-brand" href="#">
             <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>

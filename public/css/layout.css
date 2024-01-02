@@ -1,0 +1,87 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #fff; /* Adjust the background color as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.navbar-brand i,
+.navbar-brand span {
+    color: #333; /* Adjust the color as needed */
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("path-to-your-toggler-icon"); /* Replace with your custom icon */
+}
+
+/* Second Navbar */
+.navbar-expand-lg {
+    background-color: #f8f9fa; /* Adjust the background color as needed */
+    padding: 0.75rem 1rem;
+}
+
+.smkn-text {
+    font-size: 13px;
+}
+
+.logo-informasi {
+    width: 65px;
+    height: 65px;
+    margin-right: 2px;
+    margin-bottom: 13px;
+}
+/* Footer Styles */
+footer {
+    background-color: #007bff; /* Adjust the background color as needed */
+}
+
+footer .logo-informasi,
+footer .logo-map {
+    height: 50px; /* Adjust the size as needed */
+    width: auto;
+    margin-bottom: 10px;
+}
+
+footer h5,
+footer p {
+    color: #fff; /* Adjust the text color as needed */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Additional styles can be added as needed */

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-3 bg-primary-subtle text-emphasis-primary" style="background-color: #ADD8E6; padding: 10px;">
+<div class="p-3 bg-primary-subtle text-emphasis-primary" style="">
     <div class="content-container" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
         <div class="text-content" style="flex: 1; padding-right: 50px;">
             <h4 class="link">Yuk Bergabung!!</h4>
