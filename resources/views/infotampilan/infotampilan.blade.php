@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .center-image {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-    }
-</style>
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -37,7 +30,7 @@
     @if ($informasi->foto)
         <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 50px;">
             <div class="form-group">
-                <img src="{{ asset('gambar/' . $informasi->foto) }}" alt="Gambar Informasi" width="300" height="300" class="center-image">
+                <img src="{{ asset('gambar/' . $informasi->foto) }}" alt="Gambar Informasi" width="auto" height="auto" class="center-image">
             </div>
         </div>
     @endif
@@ -50,7 +43,7 @@
     <br>
 </div>
 <br>
-
+@endsection
 
 
 
