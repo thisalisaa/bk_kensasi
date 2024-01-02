@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,12 +13,17 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <style>
+        .navbar-primary {
+            background-color: #02B3FF;
+        }
+    </style>
 </head>
 
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-primary" >
+    <nav class="navbar navbar-expand-md bg-primary shadow-sm navbar-primary">
             <div class="container" >
             <a class="navbar-brand" href="#">
             <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>
@@ -101,9 +107,8 @@
     </nav>
     <hr style="margin: 0;">
 
-        <main class="py-4">
+        
             @yield('content')
-        </main>
     </div>
     <footer class="bg-primary text-light text-center py-3">
     <div class="container-fluid">

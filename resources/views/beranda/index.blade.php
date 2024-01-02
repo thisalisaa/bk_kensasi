@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-3 bg-primary-subtle text-emphasis-primary" style="">
+<div class="p-3" style="background-color: #AADAEF; text-emphasis-primary">
     <div class="content-container" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
         <div class="text-content" style="flex: 1; padding-right: 50px;">
             <h4 class="link">Yuk Bergabung!!</h4>
@@ -19,6 +19,7 @@
         </div>
     </div>
 </div>
+
 
 
 <div class="p-3 text-dark" style="background-color: #D6EDF6; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
