@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\AyahController;
 use App\Http\Controllers\IbuController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -161,3 +162,5 @@ Route::delete('/ibu/{ibu}/destroy', [IbuController::class, 'destroy'])->name('ib
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
