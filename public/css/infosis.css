@@ -1,0 +1,27 @@
+.custom-card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    background-color: #02B3FF;
+}
+
+.custom-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: #ADD8E6;
+}
+
+.card-body {
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 150px; 
+    height: 140px; 
+    margin-top: 20px;
+}
+
+.card-title, .card-text {
+    text-align: justify; 
+    text-justify: inter-word;
+}

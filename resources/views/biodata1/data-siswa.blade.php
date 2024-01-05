@@ -5,7 +5,8 @@
 <div class="row justify-content-center">
     <div class="card card-primary card-outline card-outline-tabs col-md-12">
         <div class="card-header p-0 border-bottom-0">
-            <ul class="nav nav-tabs" id="formulir-tabs" role="tablist">
+            <!-- Tambahkan kelas 'justify-content-center' pada elemen 'nav' di bawah ini -->
+            <ul class="nav nav-tabs justify-content-center" id="formulir-tabs" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('biodata1/data-siswa*') ? 'active' : '' }}" href="{{ url('/biodata/data-siswa') }}">Biodata Diri</a>
                 </li>
@@ -20,15 +21,13 @@
                 </li>
             </ul>
         </div>
-        <br>
-        
 
-    <div class="tab-content">
+    <div class="tab-content mb-5">
         <div class="tab-pane fade show active" id="data-siswa" role="tabpanel" aria-labelledby="data-siswa-tab">
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h5 class="m-0">Biodata {{ Auth::user()->name }}</h5>
+                        <h5 class="m-0">Biodata <b>{{ Auth::user()->name }}</b></h5>
                         <div class="btn-group btn-group-sm" role="group">
                         <a href="{{ route('biodata1.edit', Auth::user()->id) }}" class="btn btn-primary">
                             <i class="fas fa-edit"></i> Perbarui Biodata
@@ -38,16 +37,8 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-12 col-lg-4">
-                    <div class="border m-3 py-1 px-2">
-                        <h5>
-                            <b>Foto Siswa</b>
-                        </h5>
-                        <img src="{{ asset('assets/image/jeruk.jpg') }}" alt="foto siswa" class="cursor-pointer w-100" data-toggle="modal" data-target="#detil-portrait">
-                    </div>
-                </div>
-                <div class="col-sm-12 col-lg-8">
+            <div class="container mt-5">
+            <div class="card card-primary card-outline card-outline-tabs">
                     <table class="table table-striped table-responsive-sm">
                         <tbody>
                             <tr>
@@ -102,7 +93,7 @@
                             <tr>
                                 <th style="width: 300px">Bahasa Pengantar Dirumah</th>
                                 <td>@if(Auth::user()->bahasa== '-')
-                                    <span style="color: red;">Perbarui JBahasa</span>
+                                    <span style="color: red;">Perbarui Bahasa</span>
                                     @else
                                     {{ Auth::user()->bahasa }}
                                     @endif</td>

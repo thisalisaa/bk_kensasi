@@ -7,18 +7,39 @@ use Illuminate\Http\Request;
 
 class Biodata1Controller extends Controller 
 {
-    public function index() {
+
+
+    public function ortuindex() {
         // Mengambil semua data siswa
     $users = User::all();
 
     // Mengirim data siswa ke view
-    return view('biodata1.data-siswa', compact('users'));
+    return view('biodata1.orang-tua', compact('users'));
+    }
+    
+
+    public function ketindex() {
+        // Mengambil semua data siswa
+    $users = User::all();
+
+    // Mengirim data siswa ke view
+    return view('biodata1.keterangan-lain', compact('users'));
     }
 
     public function edit($id)
 {
     $user = User::findOrFail($id);
     return view('biodata1.perbarui-data', compact('user'));
+}
+public function ortuedit($id)
+{
+    $user = User::findOrFail($id);
+    return view('biodata1.perbarui-data-ortu', compact('user'));
+}
+public function ketedit($id)
+{
+    $user = User::findOrFail($id);
+    return view('biodata1.perbarui-data-keterangan', compact('user'));
 }
 
 public function update(Request $request, $id)
@@ -27,7 +48,25 @@ public function update(Request $request, $id)
     $user->update($request->all());
     
     // Redirect setelah update data
-    return redirect()->route('biodata1.index');
+    return redirect()->back();
+}
+
+public function ortuupdate(Request $request, $id)
+{
+    $user = User::findOrFail($id);
+    $user->update($request->all());
+    
+    // Redirect setelah update data
+    return redirect()->back();
+}
+
+public function ketupdate(Request $request, $id)
+{
+    $user = User::findOrFail($id);
+    $user->update($request->all());
+    
+    // Redirect setelah update data
+    return redirect()->route('biodata1.ketindex');
 }
 
     public function getDataSiswa() {

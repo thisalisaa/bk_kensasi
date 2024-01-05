@@ -1,64 +1,44 @@
 @extends('layouts.app')
 
-@section('contents')
-    <nav class="navbar navbar-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-phone-alt" style="color: #000000; font-size: 14px;"></i>
-                <span style="color: #000000; font-size: 14px; margin-left: 5px;">0838-9377-9890</span>
-                <i class="fas fa-envelope" style="color: #000000; font-size: 14px;"></i>
-                <span style="color: #000000; font-size: 14px; margin-left: 5px;">smkn.1sindang@yahoo.co.id</span>
-            </a>
-            <a class="ml-auto" href="{{ url('/register') }}" style="color: #000000; font-size: 14px;">
-                <i class="fas fa-user" style="color: #000000; font-size: 14px;"></i>
-                <span style="margin-left: 5px;">Login</span>
-            </a>
+@section('content')
+<div class="p-3" style="background-color: #AADAEF; text-emphasis-primary">
+    <div class="content-container" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+        <div class="text-content" style="flex: 1; padding-right: 50px;">
+            <h4 class="link">Selamat Datang!!</h4>
+            <p class="narasi">
+                Pelayanan bimbingan dan konseling sekolah
+                merupakan usaha membantu peserta didik
+                dalam pengembangan kehidupan pribadi,
+                kehidupan sosial, kegiatan belajar, serta
+                perencanaan dan pengembangan karir
+            </p>
         </div>
-    </nav>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <!-- Logo dan teks informasi pemagangan di sebelah kiri -->
-            <div class="d-flex align-items-center">
-                <img src="{{ asset('assets/image/logokensasi-removebg-preview.png') }}" alt="Logo Informasi Pemagangan" class="logo-informasi">
-                <div>
-                    <b class="informasi-pemagangan">Beranda</b>
-                    <p class="smkn-text">SMKN 1 SINDANG</p>
-                </div>
-            </div>
-
-            <!-- Tombol toggler untuk navbar -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Menu navigasi di sebelah kanan -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="{{ url('/beranda') }}">Beranda</a>
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Data
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('datasiswa.create') }}">Buat Data</a></li>
-                            <li><a class="dropdown-item" href="{{ url('biodata/data-siswa') }}">Biodata Saya</a></li>
-                        </ul>
-                    </div>
-                    <a class="nav-link" href="{{ url('informasi') }}">Informasi</a>
-                </div>
-            </div>
+        <div class="image-content" style="flex: 1; text-align: center; padding-right: 5px;">
+            <img src="assets/image/bk.png" alt="bk" style="max-width: 100%; height: auto;">
+            <p class="motto2" style="margin-top: 10px;">Guru BK Sahabat Siswa</p>
         </div>
-    </nav>
-    <hr style="margin: 0;">
-
-    <div class="container mt-4">
-        <h2>Selamat Datang Siswa</h2>
-        <form action="/logout" method="post">
-            @csrf
-            <button class="btn btn-primary" type="submit">Logout</button>
-        </form>
     </div>
+</div>
+
+
+
+<div class="p-3 text-dark" style="background-color: #D6EDF6; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
+    <div class="icon-container" style="text-align: center; padding: 10px;">
+        <img src="assets/image/personal-information.png" alt="biodata" width="150px" height="150px">
+        <p style="margin-top: 20px;">Data Siswa</p>
+    </div>
+    <div style="text-align: center; margin: 0 10px;">
+        <img src="assets/image/file.png" alt="informasi" width="150px" height="150px">
+        <p style="margin-top: 20px;">Informasi</p>
+    </div>
+    <div style="text-align: center; margin: 0 10px;">
+        <img src="assets/image/problem.png" alt="pengajuan" width="150px" height="150px">
+        <p style="margin-top: 20px;">Pengajuan Perundungan</p>
+    </div>
+</div>
 @endsection
+
+
+
+
+

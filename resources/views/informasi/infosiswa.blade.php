@@ -1,70 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
 
-    .informasi-pemagangan {
-        font-size: 20px;
-    }
+<div class="text-center mt-4 mb-20">
+    <h1 style="font-size: 30px;"><b>BURSA KERJA KHUSUS SMKN 1 SINDANG</b></h1>
+</div>
 
-    .smkn-text {
-        font-size: 13px;
-    }
-
-    .custom-card {
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: 0.3s;
-        background-color: #02B3FF;
-    }
-
-    .custom-card:hover {
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        background-color: #ADD8E6;
-    }
-
-    .card-body {
-        max-height: 150px;
-        overflow: hidden;
-        
-    }
-
-    .custom-card img {
-        margin-top: 10px;
-        margin-bottom: 0px;
-        max-height: 100px; /* Sesuaikan dengan kebutuhan Anda */
-        width: auto;
-    }
-    
-</style>
-
-
-<div class="row text-center">
+<div class="container text-center">
+    <div class="row mb-5 mt-5">
     @foreach ($informasi as $sis)
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="col-md-4">
+        <div class="col-12 col-md-12 col-lg-12 mt-4">
             <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4 d-flex">
+            <a href="{{ route('informasi.show', $sis->id) }}" style="color: inherit; text-decoration: none">
+                <div class="row">
+                    
+                    <div class="col-md-6">
                         @if ($sis->foto)
-                            <img src="{{ asset('gambar/' . $sis->foto) }}" class="img-fluid rounded-start" alt="..." style="width: 150px; height: 140px; margin-top: 20px;">
+                            <img src="{{ asset('gambar/' . $sis->foto) }}" class="img-fluid rounded-start" alt="..." style="width: 150px; height: 140px; margin-top: 10px;">
                         @else
                             <!-- Foto default jika tidak ada foto yang diinputkan -->
-                            <img src="{{ asset('asset/office-building.png') }}" class="img-fluid rounded-start" alt="Default Photo" style="width: 150px; height: 140px; margin-top: 20px;">
+                            <img src="{{ asset('assets/image/office-building.png') }}" class="img-fluid rounded-start" alt="Default Photo" style="width: 150px; height: 140px; margin-top: 20px;">
                         @endif
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 style="text-align: justify; text-justify: inter-word;" class="card-title">{{ $sis->judul_informasi }}</h5>
-                            <div style="text-align: justify; text-justify: inter-word;" class="card-text">{{ $sis->isi_informasi }}</div>
-                        </div>
-                        <div class="card-body">
-                        <a href="{{ route('informasi.show', $sis->id) }}" class="btn btn-info">Show</a>
+                            <h5 style="text-align: justify; text-justify: inter-word;" class="card-title"><b>{{ $sis->judul_informasi }}</b></h5>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <div style="text-align: justify; text-justify: inter-word;" class="card-text">{{ Str::limit($sis->isi_informasi, 100, '...')  }}</div>
+                        </div>
+                        <!-- <div class="card-body">
+                        <a href="{{ route('informasi.show', $sis->id) }}" class="btn btn-info">Show</a>
+                        </div> -->
+                    </div>
+                    
                 </div>
+                </a>
             </div>
         </div>
-    @endforeach
+        </div>
+        @endforeach
+    </div>
 </div>
 
 <br>

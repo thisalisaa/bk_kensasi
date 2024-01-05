@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
+    <div class="col-xs-12 col-sm-12 col-md-12  mb-10">
+        <div class="form-group mt-5">
             <h4 style="text-align:center; color: #00008B;">{{ $informasi->judul_informasi }}</h4>
         </div>
     </div>

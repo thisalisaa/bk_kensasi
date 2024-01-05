@@ -1,141 +1,195 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!-- contoh.blade.php -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="card">
         <div class="card-header bg-primary text-white">
             <h4 class="card-title">Update Biodata</h4>
         </div>
         <div class="card-body">
+
             <form action="{{ route('biodata.update', Auth::user()->id) }}" method="POST" class="row g-3">
                 @csrf
                 @method('PUT')
 
                 <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-md-6">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Nisn:</strong>
-                    <input type="text" name="nisn" value="{{ Auth::user()->nisn != '-' ? Auth::user()->nisn : '' }}" class="form-control">
+                    <strong>Nisn</strong>
+                    <input type="text" placeholder="Ex: 43567***" name="nisn" value="{{ Auth::user()->nisn != '-' ? Auth::user()->nisn : '' }}" class="form-control">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+             </div>
+            <div class="col-md-6">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Nama Lengkap:</strong>
+                    <strong>Nama Lengkap</strong>
                     <input class="form-control" name="nama" value="{{ Auth::user()->name }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+           <div class="col-md-6">
+           <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Kelas:</strong>
+                    <strong>Kelas</strong>
                     <input class="form-control" name="kelas"  value="{{ Auth::user()->kelas != '-' ? Auth::user()->kelas : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+           </div>
+           
+           <div class="col-md-6">
+           <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Jenis Kelamin:</strong>
-                    <input class="form-control" name="jk"  value="{{ Auth::user()->jk != '-' ? Auth::user()->jk : ''}}">
+                    <strong>Jenis Kelamin</strong>
+                    <input class="form-control" placeholder="Ex: Perempuan" name="jk"  value="{{ Auth::user()->jk != '-' ? Auth::user()->jk : ''}}">
                 </div>
+            </div>
+            </div>
+           
+           
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                <div class="form-group">
+                    <strong>Tempat Tanggal Lahir</strong>
+                    <input class="form-control" placeholder="Ex: Indramayu, 24 Agustus 2004" name="ttl"  value="{{ Auth::user()->ttl  != '-' ? Auth::user()->ttl : ''}}">
+                </div>
+            </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Tempat Tanggal Lahir:</strong>
-                    <input class="form-control" name="ttl"  value="{{ Auth::user()->ttl  != '-' ? Auth::user()->ttl : ''}}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Agama/Kepercayaan:</strong>
+                    <strong>Agama/Kepercayaan</strong>
                     <input class="form-control" name="agama" value="{{ Auth::user()->agama != '-' ? Auth::user()->agama : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Bahasa Pengantar Dirumah:</strong>
+                    <strong>Bahasa Pengantar Dirumah</strong>
                     <input class="form-control" name="bahasa" value="{{ Auth::user()->bahasa != '-' ? Auth::user()->bahasa : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Anak Ke:</strong>
+                    <strong>Anak Ke-</strong>
                     <input class="form-control" name="anak_ke" value="{{ Auth::user()->anak_ke != '-' ? Auth::user()->anak_ke : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Jumlah Saudara Kandung:</strong>
+                    <strong>Jumlah Saudara Kandung</strong>
                     <input class="form-control" name="jumlah_saudara" value="{{ Auth::user()->jumlah_saudara != '-' ? Auth::user()->jumlah_saudara : ''}}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Alamat Peserta Didik/Siswa:</strong>
+                    <strong>Alamat Peserta Didik/Siswa</strong>
                     <input class="form-control" name="alamat_siswa" value="{{ Auth::user()->alamat_siswa != '-' ? Auth::user()->alamat_siswa : ''}}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Nomor Telepon/WA:</strong>
-                    <input class="form-control" name="no_telepon" value="{{ Auth::user()->no_telepon != '-' ? Auth::user()->no_telepon : '' }}">
+                    <strong>Nomor Telepon/WA</strong>
+                    <input class="form-control" type="number" name="no_telepon" value="{{ Auth::user()->no_telepon != '-' ? Auth::user()->no_telepon : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+            
+        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Tinggal Dengan:</strong>
+                    <strong>Tinggal Dengan</strong>
                     <input class="form-control" name="tinggal_dengan" value="{{ Auth::user()->tinggal_dengan != '-' ? Auth::user()->tinggal_dengan : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Jarak Dari Rumah Ke Sekolah:</strong>
-                    <input class="form-control" name="jarak_kesekolah" value="{{ Auth::user()->jarak_kesekolah != '-' ? Auth::user()->jarak_kesekolah : ''}}">
+                    <strong>Jarak Dari Rumah Ke Sekolah</strong>
+                    <input class="form-control" placeholder="Ex: 2" name="jarak_kesekolah" value="{{ Auth::user()->jarak_kesekolah != '-' ? Auth::user()->jarak_kesekolah : ''}}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+            
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Kendaraan Kesekolah:</strong>
+                    <strong>Kendaraan Kesekolah</strong>
                     <input class="form-control" name="kendaraan" value="{{ Auth::user()->kendaraan != '-' ? Auth::user()->kendaraan : ''}}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+           
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Asal Sekolah SMP/MTS:</strong>
+                    <strong>Asal Sekolah SMP/MTS</strong>
                     <input class="form-control" name="asal_sekolah" value="{{ Auth::user()->asal_sekolah!= '-' ? Auth::user()->asal_sekolah: '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Berat Badan(kg):</strong>
-                    <input class="form-control" name="bb" value="{{ Auth::user()->bb != '-' ? Auth::user()->bb : '' }}">
+                    <strong>Berat Badan </strong>
+                    <input class="form-control" placeholder="Ex: 40" name="bb" value="{{ Auth::user()->bb != '-' ? Auth::user()->bb : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+            
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Tinggi Badan(cm):</strong>
-                    <input class="form-control" name="tb" value="{{ Auth::user()->tb != '-' ? Auth::user()->tb : '' }}">
+                    <strong>Tinggi Badan </strong>
+                    <input class="form-control" placeholder="Ex: 150" name="tb" value="{{ Auth::user()->tb != '-' ? Auth::user()->tb : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+            
+            <div class="col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Golongan Darah:</strong>
-                    <input class="form-control" name="gol_darah" value="{{ Auth::user()->gol_darah != '-' ? Auth::user()->gol_darah : '' }}">
+                    <strong>Golongan Darah </strong>
+                    <input class="form-control" placeholder="Ex: AB" name="gol_darah" value="{{ Auth::user()->gol_darah != '-' ? Auth::user()->gol_darah : '' }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            </div>
+           
+            <div class="col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
-                    <strong>Riwayat Penyakit:</strong>
+                    <strong>Riwayat Penyakit</strong>
                     <input class="form-control" name="riwayat_penyakit" value="{{ Auth::user()->riwayat_penyakit != '-' ? Auth::user()->riwayat_penyakit : ''}}">
                 </div>
             </div>
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+            
+                <div class="col-md-12 text-center mt-3">
+                    <button type="submit" class="btn btn-success btn-round">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+@endsection

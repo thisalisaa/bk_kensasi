@@ -19,7 +19,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\AyahController;
 use App\Http\Controllers\IbuController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,9 +59,17 @@ Route::middleware(['auth', 'checkrole:3'])->group(function () { //gunanya agar k
     Route::get('/biodata/orang-tua', [Biodata1Controller::class, 'getOrangTua']);
     Route::get('/biodata/keterangan-lain', [Biodata1Controller::class, 'getKeteranganLain']);
     Route::get('/biodata1', [Biodata1Controller::class, 'index'])->name('biodata1.index');
+    Route::get('/biodata1', [Biodata1Controller::class, 'ortuindex'])->name('biodata1.ortuindex');
+    Route::get('/biodata1', [Biodata1Controller::class, 'ketindex'])->name('biodata1.ketindex');
     Route::get('/edit-biodata/{id}', [Biodata1Controller::class, 'edit'])->name('biodata1.edit');
     Route::put('/biodata/{id}', [Biodata1Controller::class, 'update'])->name('biodata.update');
     Route::get('/biodata/unduh-data', [Biodata1Controller::class, 'getUnduhData']);
+
+    // New routes for editing parents' information and other details
+    Route::get('/edit-orang-tua/{id}', [Biodata1Controller::class, 'ortuedit'])->name('biodata1.ortuedit');
+    Route::put('/update-orang-tua/{id}', [Biodata1Controller::class, 'ortuupdate'])->name('biodata1.ortuupdate');
+    Route::get('/edit-keterangan-lain/{id}', [Biodata1Controller::class, 'ketedit'])->name('biodata1.ketedit');
+    Route::put('/update-keterangan-lain/{id}', [Biodata1Controller::class, 'ketupdate'])->name('biodata1.ketupdate');
 });
 
 // Rute untuk data siswa
@@ -164,3 +172,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+
+Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'checkrole:1,3']);;
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show')->middleware(['auth', 'checkrole:1,3']);;
+Route::get('/detail-data', [UserController::class, 'show'])->middleware(['auth', 'checkrole:1,3']);
+

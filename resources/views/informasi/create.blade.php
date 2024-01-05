@@ -3,7 +3,7 @@
 
 
 <div class="container">
-    <div class="card">
+    <div class="card mt-5 mb-5 ">
         <div class="card-header text-center">
             <h4>Tambahkan Informasi Baru</h4>
         </div>
@@ -51,7 +51,7 @@
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-success">Submit</button>
-                    <a class="btn btn-primary" href="{{ route('informasi.index') }}"> Kembali</a>
+                    <a class="btn btn-primary" href="{{ route('informasi.index') }}"> Batal</a>
                 </div>
             </form>
         </div>

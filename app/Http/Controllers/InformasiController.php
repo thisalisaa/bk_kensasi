@@ -98,7 +98,7 @@ class InformasiController extends Controller
         $informasi->update($request->all());
 
         return redirect()->route('informasi.index')
-        ->with('success', 'Informasi created successfully.')
+        ->with('success', 'Informasi update successfully.')
         ->with('popup', true); // Tambahkan flag popup
         }
 
@@ -107,6 +107,6 @@ class InformasiController extends Controller
         $informasi->delete();
 
         return redirect()->route('informasi.index')
-        ->with('success', 'Informasi created successfully.');
+        ->with('success', 'Informasi deleted successfully.');
     }
 }
